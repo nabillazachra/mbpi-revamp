@@ -144,8 +144,26 @@ export default function HomePage({ lang = 'id' }) {
           <div><span className="premiumSectionNo">05</span><span className="premiumEyebrow">{id ? 'OPERASI' : 'OPERATIONS'}</span></div>
           <h2>{id ? 'Infrastruktur dan kontrol yang bekerja di balik setiap layanan.' : 'Infrastructure and control behind every service.'}</h2>
         </div>
-        <div className="premiumOpsGrid">
-          {['One-stop services','Integrated Own Build System','Electronic Data Interchange (EDI)','24 hours CCTV and Security','Location near Port','GPS on Trucks'].map((x,i)=><div key={x}><span>0{i+1}</span><strong>{x}</strong></div>)}
+        <div className="operationCapabilityGrid">
+          {[
+            {no:'01',label:id?'MODEL LAYANAN':'SERVICE MODEL',title:'One-stop services',desc:id?'Depot, warehousing, repair, dan trucking terhubung dalam satu ekosistem operasi.':'Depot, warehousing, repair, and trucking connected in one operating ecosystem.',icon:'blocks'},
+            {no:'02',label:id?'SISTEM DIGITAL':'DIGITAL SYSTEM',title:'Integrated Own Build System',desc:id?'Sistem internal mendukung kontrol proses, visibility, dan koordinasi operasional.':'In-house systems support process control, visibility, and operational coordination.',icon:'system'},
+            {no:'03',label:id?'PERTUKARAN DATA':'DATA EXCHANGE',title:'Electronic Data Interchange (EDI)',desc:id?'Pertukaran data digital membantu mempercepat koordinasi dengan customer dan partner.':'Digital data exchange helps accelerate coordination with customers and partners.',icon:'edi'},
+            {no:'04',label:id?'KEAMANAN':'SECURITY',title:'24 hours CCTV and Security',desc:id?'Monitoring berkelanjutan dan kontrol akses mendukung keamanan fasilitas dan cargo.':'Continuous monitoring and access control support facility and cargo security.',icon:'cctv'},
+            {no:'05',label:id?'LOKASI':'LOCATION',title:'Location near Port',desc:id?'Lokasi strategis mendukung mobilitas kontainer dan turnaround operasional yang lebih efisien.':'Strategic proximity supports container movement and more efficient operational turnaround.',icon:'port'},
+            {no:'06',label:id?'KONTROL ARMADA':'FLEET CONTROL',title:'GPS on Trucks',desc:id?'Tracking armada meningkatkan visibility rute, koordinasi, dan kontrol pengiriman.':'Fleet tracking improves route visibility, coordination, and delivery control.',icon:'route'}
+          ].map((item)=><article className="operationCapabilityCard" key={item.no}>
+            <div className="operationCardTop">
+              <span className="operationNo">{item.no}</span>
+              <div className="operationIcon"><Icon name={item.icon} size={25}/></div>
+            </div>
+            <div className="operationCardBody">
+              <small>{item.label}</small>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+            </div>
+            <div className="operationCardFoot"><Icon name="arrow" size={17}/></div>
+          </article>)}
         </div>
       </div>
     </section>

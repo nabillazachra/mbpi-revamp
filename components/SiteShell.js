@@ -36,7 +36,7 @@ export default function SiteShell({ lang = 'id', children }) {
             </div>
             <div className="utilityRight">
               <a href={site.external.efaktur} target="_blank" rel="noreferrer">E-FAKTUR</a>
-              <Link href={lang === 'id' ? '/id/support/' : '/support/'}>FAQ</Link>
+              <Link href={lang === 'id' ? '/id/faq/' : '/faq/'}>FAQ</Link>
               <Link href={altPath}>{lang === 'id' ? 'ENGLISH' : 'INDONESIA'}</Link>
             </div>
           </div>
@@ -94,6 +94,7 @@ export default function SiteShell({ lang = 'id', children }) {
             <Link href={lang === 'id' ? '/id/about-us/' : '/about-us/'}>{lang === 'id' ? 'Tentang' : 'About'}</Link>
             <Link href={lang === 'id' ? '/id/career/' : '/career/'}>{lang === 'id' ? 'Karier' : 'Career'}</Link>
             <Link href={lang === 'id' ? '/id/news/' : '/news/'}>{lang === 'id' ? 'Berita' : 'News'}</Link>
+            <Link href={lang === 'id' ? '/id/faq/' : '/faq/'}>FAQ</Link>
           </div>
           <div>
             <strong>{lang === 'id' ? 'KONTAK' : 'CONTACT'}</strong>

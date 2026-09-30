@@ -99,12 +99,12 @@ export default function HomePage({ lang = 'id' }) {
           <Link href={`${prefix}/branches/`} className="premiumTextLink lightLink">{id ? 'Lihat cabang' : 'Explore branches'} <Icon name="arrow" size={16}/></Link>
         </div>
         <div className="premiumLocationList">
-          <Link href={`${prefix}/facilities/`} className="premiumLocation">
+          <Link href={`${prefix}/branches/jakarta/`} className="premiumLocation">
             <div className="locationArt jakartaArt"><span>JKT</span></div>
             <div><small>01 / JAKARTA</small><h3>Tanjung Priok Area</h3><p>Depot • Repair • Warehouse • Trucking</p></div>
             <Icon name="arrow" size={19}/>
           </Link>
-          <Link href={`${prefix}/facilities/`} className="premiumLocation">
+          <Link href={`${prefix}/branches/semarang/`} className="premiumLocation">
             <div className="locationArt semarangArt"><span>SMG</span></div>
             <div><small>02 / SEMARANG</small><h3>Tanjung Emas Area</h3><p>Container Yard • Reefer • Handling</p></div>
             <Icon name="arrow" size={19}/>

@@ -2,11 +2,12 @@ import Link from 'next/link';
 import SiteShell from './SiteShell';
 import PageHero from './PageHero';
 import Icon from './Icon';
+import FacilityMotion from './FacilityMotion';
 import { site } from '../content/site';
 
 function MetricCard({ title, fields, values }) {
   const verified = Array.isArray(values) && values.length > 0;
-  return <article className="facilityMetricCard">
+  return <article className="facilityMetricCard" data-reveal="metric">
     <span className={`metricStatus ${verified ? 'isVerified' : ''}`}>{verified ? 'VERIFIED FROM LEGACY FACILITY SCREENSHOT' : 'SOURCE VALUE TO VERIFY'}</span>
     <h4>{title}</h4>
     <div className="metricFields">
@@ -19,14 +20,14 @@ function MetricCard({ title, fields, values }) {
 }
 
 function PublishedFacts({ facts }) {
-  return <div className="publishedFacts">
+  return <div className="publishedFacts" data-reveal="facts">
     {facts.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}
   </div>;
 }
 
 function FacilityPhoto({ city }) {
   const isJakarta = city === 'Jakarta';
-  return <figure className="facilityPhoto">
+  return <figure className="facilityPhoto" data-reveal="photo">
     <img src={isJakarta
       ? 'https://mbpi.co.id/wp-content/uploads/elementor/thumbs/IMG-7956412017-1-ox4l1zsaqwt0ca1q5wzebbahjfr181vlen8y5jbvog.jpeg'
       : 'https://mbpi.co.id/wp-content/uploads/elementor/thumbs/DSCN0168-oxkdcyfuzdkzya9h6wyas2d4xu4m8xjh93x9jemecg.jpg'} alt={`MBPI ${city} facility`} />
@@ -36,7 +37,7 @@ function FacilityPhoto({ city }) {
 }
 
 function FeatureList({ items }) {
-  return <div className="facilityFeatureList">
+  return <div className="facilityFeatureList" data-reveal="features">
     {items.map((item, index) => <div key={item}><span>{String(index + 1).padStart(2, '0')}</span><p>{item}</p></div>)}
   </div>;
 }
@@ -45,7 +46,7 @@ function JakartaFacility({ lang }) {
   const id = lang === 'id';
   return <section className="facilityDetail">
     <FacilityPhoto city="Jakarta"/>
-    <div className="facilityDetailHeader">
+    <div className="facilityDetailHeader" data-reveal="header">
       <div><span className="sectionIndex">01</span><span className="kicker">JAKARTA FACILITY</span></div>
       <div>
         <h2>{id ? 'Fasilitas Jakarta' : 'Jakarta Facility'}</h2>
@@ -60,7 +61,7 @@ function JakartaFacility({ lang }) {
       </div>
     </div>
 
-    <div className="facilityDetailSection">
+    <div className="facilityDetailSection" data-reveal="section">
       <div className="facilitySectionTitle"><span>AREA</span><h3>Container Yard</h3></div>
       <div className="facilityMetricGrid two">
         <MetricCard title={id ? 'Luas Total Container Yard' : 'Total Container Yard Area'} fields={['m²']} values={['±129,691']} />
@@ -68,7 +69,7 @@ function JakartaFacility({ lang }) {
       </div>
     </div>
 
-    <div className="facilityDetailSection">
+    <div className="facilityDetailSection" data-reveal="section">
       <div className="facilitySectionTitle"><span>WAREHOUSE</span><h3>{id ? 'Gudang' : 'Warehouse'}</h3></div>
       <FeatureList items={id ? [
         'Loading Dock dengan lebar 4 meter.',
@@ -81,7 +82,7 @@ function JakartaFacility({ lang }) {
       ]}/>
     </div>
 
-    <div className="facilityDetailSection splitSections">
+    <div className="facilityDetailSection splitSections" data-reveal="section">
       <div>
         <div className="facilitySectionTitle"><span>CFS I</span><h3>CFS I</h3></div>
         <div className="facilityMetricGrid">
@@ -98,12 +99,12 @@ function JakartaFacility({ lang }) {
       </div>
     </div>
 
-    <div className="facilityEquipmentHeader">
+    <div className="facilityEquipmentHeader" data-reveal="equipment">
       <span className="sectionIndex">EQUIPMENT</span>
       <h2>{id ? 'Peralatan Jakarta' : 'Jakarta Equipment'}</h2>
     </div>
 
-    <div className="facilityDetailSection">
+    <div className="facilityDetailSection" data-reveal="section">
       <div className="facilitySectionTitle"><span>EMPTY</span><h3>Empty Container Equipment</h3></div>
       <div className="facilityMetricGrid two">
         <MetricCard title="Side Loader / 7 High" fields={[id ? 'High / Tier' : 'High / Tier', id ? 'Unit' : 'Units']} values={['7','3']} />
@@ -111,7 +112,7 @@ function JakartaFacility({ lang }) {
       </div>
     </div>
 
-    <div className="facilityDetailSection">
+    <div className="facilityDetailSection" data-reveal="section">
       <div className="facilitySectionTitle"><span>FULL</span><h3>Full Container Equipment</h3></div>
       <div className="facilityMetricGrid two">
         <MetricCard title="Reach Stacker" fields={['Ton', id ? 'Unit' : 'Units']} values={['45','1']} />
@@ -119,7 +120,7 @@ function JakartaFacility({ lang }) {
       </div>
     </div>
 
-    <div className="facilityDetailSection">
+    <div className="facilityDetailSection" data-reveal="section">
       <div className="facilitySectionTitle"><span>LIFTING</span><h3>Forklift</h3></div>
       <div className="facilityMetricGrid four">
         <MetricCard title={id ? 'Forklift Elektrik' : 'Electric Forklift'} fields={['Ton', id ? 'Unit' : 'Units']} values={['3','4']} />
@@ -129,14 +130,14 @@ function JakartaFacility({ lang }) {
       </div>
     </div>
 
-    <div className="facilityDetailSection">
+    <div className="facilityDetailSection" data-reveal="section">
       <div className="facilitySectionTitle"><span>REEFER</span><h3>Reefer Container Plug</h3></div>
       <div className="facilityMetricGrid">
         <MetricCard title="Socket" fields={['A / (380–400V)', id ? 'Unit' : 'Units']} values={['32','32']} />
       </div>
     </div>
 
-    <div className="facilityDetailSection">
+    <div className="facilityDetailSection" data-reveal="section">
       <div className="facilitySectionTitle"><span>TRAILER</span><h3>Trailer Truck</h3></div>
       <div className="facilityMetricGrid four">
         <MetricCard title="Head Truck / 60 Ton" fields={['Ton', id ? 'Unit' : 'Units']} values={['60','5']} />
@@ -169,7 +170,7 @@ function SemarangFacility({ lang }) {
       </div>
     </div>
 
-    <div className="facilityDetailSection">
+    <div className="facilityDetailSection" data-reveal="section">
       <div className="facilitySectionTitle"><span>AREA</span><h3>Container Yard</h3></div>
       <div className="facilityMetricGrid two">
         <MetricCard title={id ? 'Luas Total Container Yard' : 'Total Container Yard Area'} fields={['m²']} values={['±16,400']} />
@@ -177,19 +178,19 @@ function SemarangFacility({ lang }) {
       </div>
     </div>
 
-    <div className="facilityEquipmentHeader">
+    <div className="facilityEquipmentHeader" data-reveal="equipment">
       <span className="sectionIndex">EQUIPMENT</span>
       <h2>{id ? 'Peralatan Semarang' : 'Semarang Equipment'}</h2>
     </div>
 
-    <div className="facilityDetailSection">
+    <div className="facilityDetailSection" data-reveal="section">
       <div className="facilitySectionTitle"><span>EMPTY</span><h3>Empty Container Equipment</h3></div>
       <div className="facilityMetricGrid">
         <MetricCard title="Side Loader" fields={['Tier', id ? 'Unit' : 'Units']} values={['8','2']} />
       </div>
     </div>
 
-    <div className="facilityDetailSection">
+    <div className="facilityDetailSection" data-reveal="section">
       <div className="facilitySectionTitle"><span>LIFTING</span><h3>Forklift & Reefer</h3></div>
       <div className="facilityMetricGrid two">
         <MetricCard title={id ? 'Forklift Diesel' : 'Diesel Forklift'} fields={['Ton', id ? 'Unit' : 'Units']} values={['2.5','1']} />
@@ -205,6 +206,7 @@ export default function FacilitiesPage({ lang='id', focus=null }) {
   const id = lang === 'id';
   const prefix = id ? '/id' : '';
   return <SiteShell lang={lang}>
+    <FacilityMotion/>
     <PageHero index="04" kicker={id ? 'FASILITAS' : 'FACILITIES'}
       title={focus === 'jakarta' ? (id ? 'Fasilitas Jakarta.' : 'Jakarta Facility.') : focus === 'semarang' ? (id ? 'Fasilitas Semarang.' : 'Semarang Facility.') : (id ? 'Fasilitas operasional, ditampilkan selengkap struktur existing.' : 'Operational facilities, preserving the full legacy structure.')}
       intro={focus === 'jakarta' ? (id ? 'Data Jakarta Facility direstore dari screenshot website existing, termasuk area, CFS, equipment, reefer, dan trailer.' : 'Jakarta Facility data is restored from the legacy website screenshot, including area, CFS, equipment, reefer, and trailer figures.') : focus === 'semarang' ? (id ? 'Data Semarang Facility direstore dari screenshot website existing, termasuk area, kapasitas, side loader, forklift, dan reefer plug.' : 'Semarang Facility data is restored from the legacy website screenshot, including area, capacity, side loader, forklift, and reefer plug.') : (id ? 'Data Jakarta dan Semarang Facility sudah direstore dari screenshot website existing, termasuk area, kapasitas, CFS, equipment, reefer, dan trailer.' : 'Jakarta and Semarang Facility data has been restored from the legacy website screenshots, including area, capacity, CFS, equipment, reefer, and trailer figures.')}/>

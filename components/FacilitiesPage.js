@@ -6,9 +6,7 @@ import FacilityMotion from './FacilityMotion';
 import { site } from '../content/site';
 
 function MetricCard({ title, fields, values }) {
-  const verified = Array.isArray(values) && values.length > 0;
   return <article className="facilityMetricCard" data-reveal="metric">
-    <span className={`metricStatus ${verified ? 'isVerified' : ''}`}>{verified ? 'VERIFIED FROM LEGACY FACILITY SCREENSHOT' : 'SOURCE VALUE TO VERIFY'}</span>
     <h4>{title}</h4>
     <div className="metricFields">
       {fields.map((field, index) => <div key={field + index}>
@@ -52,7 +50,7 @@ function JakartaFacility({ lang }) {
         <h2>{id ? 'Fasilitas Jakarta' : 'Jakarta Facility'}</h2>
         <p>{id ? 'Berlokasi di timur laut Kota Jakarta, sekitar 11 km dari Pelabuhan Tanjung Priok.' : 'Located in north-east Jakarta, approximately 11 km from Tanjung Priok Port.'}</p>
         <PublishedFacts facts={[
-          ['100,000+ m²', id ? 'Area depot yang dipublikasikan pada halaman Services' : 'Depot area published on Services'],
+          ['100,000+ m²', id ? 'Area depot' : 'Depot area'],
           ['11 km', id ? 'Jarak ke Pelabuhan Tanjung Priok' : 'Distance to Tanjung Priok Port'],
           ['4 m', id ? 'Lebar loading dock' : 'Loading dock width'],
           ['12', id ? 'Truk/trailer sekaligus per gudang' : 'Trucks/trailers simultaneously per warehouse'],
@@ -157,7 +155,7 @@ function SemarangFacility({ lang }) {
   const id = lang === 'id';
   return <section className="facilityDetail facilitySemarang">
     <FacilityPhoto city="Semarang"/>
-    <div className="facilityDetailHeader">
+    <div className="facilityDetailHeader" data-reveal="header">
       <div><span className="sectionIndex">02</span><span className="kicker">SEMARANG FACILITY</span></div>
       <div>
         <h2>{id ? 'Fasilitas Semarang' : 'Semarang Facility'}</h2>
@@ -208,18 +206,12 @@ export default function FacilitiesPage({ lang='id', focus=null }) {
   return <SiteShell lang={lang}>
     <FacilityMotion/>
     <PageHero index="04" kicker={id ? 'FASILITAS' : 'FACILITIES'}
-      title={focus === 'jakarta' ? (id ? 'Fasilitas Jakarta.' : 'Jakarta Facility.') : focus === 'semarang' ? (id ? 'Fasilitas Semarang.' : 'Semarang Facility.') : (id ? 'Fasilitas operasional, ditampilkan selengkap struktur existing.' : 'Operational facilities, preserving the full legacy structure.')}
-      intro={focus === 'jakarta' ? (id ? 'Data Jakarta Facility direstore dari screenshot website existing, termasuk area, CFS, equipment, reefer, dan trailer.' : 'Jakarta Facility data is restored from the legacy website screenshot, including area, CFS, equipment, reefer, and trailer figures.') : focus === 'semarang' ? (id ? 'Data Semarang Facility direstore dari screenshot website existing, termasuk area, kapasitas, side loader, forklift, dan reefer plug.' : 'Semarang Facility data is restored from the legacy website screenshot, including area, capacity, side loader, forklift, and reefer plug.') : (id ? 'Data Jakarta dan Semarang Facility sudah direstore dari screenshot website existing, termasuk area, kapasitas, CFS, equipment, reefer, dan trailer.' : 'Jakarta and Semarang Facility data has been restored from the legacy website screenshots, including area, capacity, CFS, equipment, reefer, and trailer figures.')}/>
+      title={focus === 'jakarta' ? (id ? 'Infrastruktur operasional Jakarta.' : 'Jakarta operational infrastructure.') : focus === 'semarang' ? (id ? 'Infrastruktur operasional Semarang.' : 'Semarang operational infrastructure.') : (id ? 'Infrastruktur untuk operasional kontainer end-to-end.' : 'Infrastructure for end-to-end container operations.')}
+      intro={focus === 'jakarta' ? (id ? 'Container yard, CFS, warehouse, reefer support, dan equipment yang mendukung operasi MBPI di Jakarta.' : 'Container yard, CFS, warehouse, reefer support, and equipment supporting MBPI operations in Jakarta.') : focus === 'semarang' ? (id ? 'Container yard, side loader, forklift, dan reefer support untuk mendukung operasi MBPI di Semarang.' : 'Container yard, side loader, forklift, and reefer support for MBPI operations in Semarang.') : (id ? 'Fasilitas Jakarta dan Semarang mendukung container handling, warehousing, repair, reefer, dan transportasi dalam satu jaringan operasi.' : 'Jakarta and Semarang facilities support container handling, warehousing, repair, reefer, and transportation across one operating network.')}/>
     <section className="facilityPageWrap"><div className="container">
       {(!focus || focus === 'jakarta') && <JakartaFacility lang={lang}/>}
       {(!focus || focus === 'semarang') && <SemarangFacility lang={lang}/>}
     </div></section>
-    <section className="facilityDataNotice">
-      <div className="container facilityDataNoticeInner">
-        <div><span className="kicker">{id ? 'VALIDASI DATA' : 'DATA VALIDATION'}</span><h2>{focus === 'jakarta' ? (id ? 'Data Jakarta sudah direstore dari source visual existing.' : 'Jakarta data has been restored from a legacy visual source.') : focus === 'semarang' ? (id ? 'Data Semarang sudah direstore dari source visual existing.' : 'Semarang data has been restored from a legacy visual source.') : (id ? 'Jakarta dan Semarang sudah direstore dari source visual existing.' : 'Jakarta and Semarang have been restored from legacy visual sources.')}</h2></div>
-        <p>{focus ? (id ? 'Metric utama pada halaman ini diambil dari screenshot facility existing yang diberikan, sehingga tidak menggunakan counter hasil crawl yang terbaca 0.' : 'Primary metrics on this page were restored from the supplied legacy facility screenshot instead of the public crawler counters exposed as 0.') : (id ? 'Seluruh metric utama pada halaman ini diambil dari screenshot halaman Jakarta Facility dan Semarang Facility existing yang diberikan, sehingga tidak lagi menggunakan counter hasil crawl yang terbaca 0.' : 'All primary metrics on this page were restored from the supplied legacy Jakarta Facility and Semarang Facility screenshots, replacing the public crawler counters that were exposed as 0.')}</p>
-      </div>
-    </section>
-    <section className="ctaBand"><div className="container ctaInner"><div><div className="kicker lightKicker">{id ? 'BUTUH DETAIL FASILITAS?' : 'NEED FACILITY DETAILS?'}</div><h2>{id ? 'Hubungi tim MBPI untuk data kapasitas terbaru.' : 'Contact MBPI for the latest verified capacity data.'}</h2></div><Link className="lightBtn" href={`${prefix}/contact/`}>{id ? 'Hubungi Kami' : 'Contact Us'} <Icon name="arrow" size={18}/></Link></div></section>
+    <section className="ctaBand"><div className="container ctaInner"><div><div className="kicker lightKicker">{id ? 'BUTUH DETAIL FASILITAS?' : 'NEED FACILITY DETAILS?'}</div><h2>{id ? 'Hubungi tim MBPI untuk informasi fasilitas dan kapasitas operasional.' : 'Contact MBPI for facility and operational capacity information.'}</h2></div><Link className="lightBtn" href={`${prefix}/contact/`}>{id ? 'Hubungi Kami' : 'Contact Us'} <Icon name="arrow" size={18}/></Link></div></section>
   </SiteShell>;
 }

@@ -45,18 +45,18 @@ function JakartaFacility({ lang }) {
   return <section className="facilityDetail">
     <FacilityPhoto city="Jakarta"/>
     <div className="facilityDetailHeader" data-reveal="header">
-      <div><span className="sectionIndex">01</span><span className="kicker">JAKARTA FACILITY</span></div>
-      <div>
+      <div className="facilityHeaderMeta"><span className="sectionIndex">01</span><span className="kicker">JAKARTA FACILITY</span></div>
+      <div className="facilityHeaderCopy">
         <h2>{id ? 'Fasilitas Jakarta' : 'Jakarta Facility'}</h2>
         <p>{id ? 'Berlokasi di timur laut Kota Jakarta, sekitar 11 km dari Pelabuhan Tanjung Priok.' : 'Located in north-east Jakarta, approximately 11 km from Tanjung Priok Port.'}</p>
-        <PublishedFacts facts={[
-          ['100,000+ m²', id ? 'Area depot' : 'Depot area'],
-          ['11 km', id ? 'Jarak ke Pelabuhan Tanjung Priok' : 'Distance to Tanjung Priok Port'],
-          ['4 m', id ? 'Lebar loading dock' : 'Loading dock width'],
-          ['12', id ? 'Truk/trailer sekaligus per gudang' : 'Trucks/trailers simultaneously per warehouse'],
-          ['100', id ? 'Kontainer kosong pada area stuffing' : 'Empty containers in stuffing area']
-        ]}/>
       </div>
+      <PublishedFacts facts={[
+        ['100,000+ m²', id ? 'Area depot' : 'Depot area'],
+        ['11 km', id ? 'Jarak ke Pelabuhan Tanjung Priok' : 'Distance to Tanjung Priok Port'],
+        ['4 m', id ? 'Lebar loading dock' : 'Loading dock width'],
+        ['12', id ? 'Truk/trailer sekaligus per gudang' : 'Trucks/trailers simultaneously per warehouse'],
+        ['100', id ? 'Kontainer kosong pada area stuffing' : 'Empty containers in stuffing area']
+      ]}/>
     </div>
 
     <div className="facilityDetailSection" data-reveal="section">
@@ -156,16 +156,16 @@ function SemarangFacility({ lang }) {
   return <section className="facilityDetail facilitySemarang">
     <FacilityPhoto city="Semarang"/>
     <div className="facilityDetailHeader" data-reveal="header">
-      <div><span className="sectionIndex">02</span><span className="kicker">SEMARANG FACILITY</span></div>
-      <div>
+      <div className="facilityHeaderMeta"><span className="sectionIndex">02</span><span className="kicker">SEMARANG FACILITY</span></div>
+      <div className="facilityHeaderCopy">
         <h2>{id ? 'Fasilitas Semarang' : 'Semarang Facility'}</h2>
         <p>{id ? 'Berlokasi di sisi utara Semarang, sekitar 4 km dari Pelabuhan Tanjung Emas.' : 'Located on the north side of Semarang, approximately 4 km from Tanjung Emas Port.'}</p>
-        <PublishedFacts facts={[
-          ['±16,400 m²', id ? 'Total Container Yard Area' : 'Total Container Yard Area'],
-          ['4,140 TEUs', id ? 'Kapasitas penyimpanan' : 'Storage capacity'],
-          ['4 km', id ? 'Jarak ke Pelabuhan Tanjung Emas' : 'Distance to Tanjung Emas Port']
-        ]}/>
       </div>
+      <PublishedFacts facts={[
+        ['±16,400 m²', id ? 'Total Container Yard Area' : 'Total Container Yard Area'],
+        ['4,140 TEUs', id ? 'Kapasitas penyimpanan' : 'Storage capacity'],
+        ['4 km', id ? 'Jarak ke Pelabuhan Tanjung Emas' : 'Distance to Tanjung Emas Port']
+      ]}/>
     </div>
 
     <div className="facilityDetailSection" data-reveal="section">

@@ -4,14 +4,23 @@ import PageHero from './PageHero';
 import Icon from './Icon';
 import { site } from '../content/site';
 
-function MetricCard({ title, fields }) {
+function MetricCard({ title, fields, values }) {
   return <article className="facilityMetricCard">
     <span className="metricStatus">SOURCE VALUE TO VERIFY</span>
     <h4>{title}</h4>
     <div className="metricFields">
-      {fields.map((field) => <div key={field}><strong>—</strong><span>{field}</span></div>)}
+      {fields.map((field, index) => <div key={field + index}>
+        <strong>{values?.[index] ?? 'Belum terbaca'}</strong>
+        <span>{field}</span>
+      </div>)}
     </div>
   </article>;
+}
+
+function PublishedFacts({ facts }) {
+  return <div className="publishedFacts">
+    {facts.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}
+  </div>;
 }
 
 function FeatureList({ items }) {
@@ -28,6 +37,13 @@ function JakartaFacility({ lang }) {
       <div>
         <h2>{id ? 'Fasilitas Jakarta' : 'Jakarta Facility'}</h2>
         <p>{id ? 'Berlokasi di timur laut Kota Jakarta, sekitar 11 km dari Pelabuhan Tanjung Priok.' : 'Located in north-east Jakarta, approximately 11 km from Tanjung Priok Port.'}</p>
+        <PublishedFacts facts={[
+          ['100,000+ m²', id ? 'Area depot yang dipublikasikan pada halaman Services' : 'Depot area published on Services'],
+          ['11 km', id ? 'Jarak ke Pelabuhan Tanjung Priok' : 'Distance to Tanjung Priok Port'],
+          ['4 m', id ? 'Lebar loading dock' : 'Loading dock width'],
+          ['12', id ? 'Truk/trailer sekaligus per gudang' : 'Trucks/trailers simultaneously per warehouse'],
+          ['100', id ? 'Kontainer kosong pada area stuffing' : 'Empty containers in stuffing area']
+        ]}/>
       </div>
     </div>
 
@@ -131,6 +147,9 @@ function SemarangFacility({ lang }) {
       <div>
         <h2>{id ? 'Fasilitas Semarang' : 'Semarang Facility'}</h2>
         <p>{id ? 'Berlokasi di sisi utara Semarang, sekitar 4 km dari Pelabuhan Tanjung Emas.' : 'Located on the north side of Semarang, approximately 4 km from Tanjung Emas Port.'}</p>
+        <PublishedFacts facts={[
+          ['4 km', id ? 'Jarak ke Pelabuhan Tanjung Emas' : 'Distance to Tanjung Emas Port']
+        ]}/>
       </div>
     </div>
 

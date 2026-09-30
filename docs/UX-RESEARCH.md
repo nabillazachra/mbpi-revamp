@@ -31,14 +31,14 @@ The current MBPI site contains these primary information groups:
 
 ## 4. Design direction
 
-Use the same editorial design language as the Nutech revamp:
+Use a modern editorial design language while preserving MBPI visual identity:
 
 - Nutech orange: #f15a29
 - Ink: #171b20
 - Warm off-white: #f7f7f5
 - High contrast typography
 - Square/low-radius UI rather than generic rounded AI cards
-- Strong grid, numbered sections, thin divider lines, and operational typography
+- Strong grid, numbered sections, thin divider lines, and operational typography\n- Red and green should be used as brand signals, not as full-screen competing backgrounds
 - Minimal decoration; logistics visualization is built with CSS so the prototype does not depend on unrelated stock imagery
 
 ## 5. Proposed information architecture

@@ -22,68 +22,89 @@ export default function SiteShell({ lang = 'id', children }) {
   const altPath = lang === 'id'
     ? (pathname?.replace(/^\/id/, '') || '/')
     : `/id${pathname === '/' ? '/' : pathname}`;
-  const quoteLabel = lang === 'id' ? 'Minta Penawaran' : 'Request a Quote';
 
   return (
     <>
       <a href="#content" className="skipLink">Skip to content</a>
-      <header className="siteHeader">
-        <div className="container navBar">
-          <Link href={home} className="brand" aria-label="MBPI home">
-            <div className="brandMark">MBPI</div>
-            <div className="brandMeta">MULTI BINA PURA INTERNATIONAL</div>
-          </Link>
-          <nav className="desktopNav" aria-label="Primary navigation">
-            {nav[lang].map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
-          </nav>
-          <div className="navActions">
-            <Link className="language" href={altPath}>{lang === 'id' ? 'EN' : 'ID'}</Link>
-            <Link className="quoteBtn" href={lang === 'id' ? '/id/contact/' : '/contact/'}>{quoteLabel} <Icon name="arrow" size={16}/></Link>
-            <button className="menuToggle" type="button" aria-label={mobileOpen ? 'Close menu' : 'Open menu'} aria-expanded={mobileOpen} onClick={() => setMobileOpen(!mobileOpen)}>
-              <span></span><span></span><span></span>
-            </button>
+      <header className="mbpiHeader">
+        <div className="utilityBar">
+          <div className="container utilityInner">
+            <div className="utilityLeft">
+              <span>EST. 1993</span>
+              <span>JAKARTA</span>
+              <span>SEMARANG</span>
+            </div>
+            <div className="utilityRight">
+              <a href={site.external.efaktur} target="_blank" rel="noreferrer">E-FAKTUR</a>
+              <Link href={lang === 'id' ? '/id/support/' : '/support/'}>FAQ</Link>
+              <Link href={altPath}>{lang === 'id' ? 'ENGLISH' : 'INDONESIA'}</Link>
+            </div>
           </div>
         </div>
+
+        <div className="mainNav">
+          <div className="container navBar">
+            <Link href={home} className="brand" aria-label="MBPI home">
+              <div className="brandMark">MBPI</div>
+              <div className="brandMeta">MULTI BINA PURA INTERNATIONAL</div>
+            </Link>
+            <nav className="desktopNav" aria-label="Primary navigation">
+              {nav[lang].map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
+            </nav>
+            <div className="navActions">
+              <Link className="headerContact" href={lang === 'id' ? '/id/contact/' : '/contact/'}>
+                {lang === 'id' ? 'Hubungi Kami' : 'Contact Us'} <Icon name="arrow" size={16}/>
+              </Link>
+              <button className="menuToggle" type="button" aria-label={mobileOpen ? 'Close menu' : 'Open menu'} aria-expanded={mobileOpen} onClick={() => setMobileOpen(!mobileOpen)}>
+                <span></span><span></span><span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div className={`mobileMenu ${mobileOpen ? 'isOpen' : ''}`}>
           <nav className="container mobileNav" aria-label="Mobile navigation">
-            {nav[lang].map(([label, href], i) => (
-              <Link key={href} href={href} onClick={() => setMobileOpen(false)}>
-                <span>{String(i + 1).padStart(2, '0')}</span>{label}
-              </Link>
+            {nav[lang].map(([label, href]) => (
+              <Link key={href} href={href} onClick={() => setMobileOpen(false)}>{label}</Link>
             ))}
             <Link className="mobileQuote" href={lang === 'id' ? '/id/contact/' : '/contact/'} onClick={() => setMobileOpen(false)}>
-              {quoteLabel} <Icon name="arrow" size={17}/>
+              {lang === 'id' ? 'Hubungi Kami' : 'Contact Us'} <Icon name="arrow" size={17}/>
             </Link>
           </nav>
         </div>
       </header>
+
       <main id="content">{children}</main>
-      <footer>
-        <div className="container footerGrid">
-          <div>
+
+      <footer className="mbpiFooter">
+        <div className="footerSignal"></div>
+        <div className="container footerNewGrid">
+          <div className="footerBrandBlock">
             <div className="brand brandFooter"><div className="brandMark">MBPI</div><div className="brandMeta">MULTI BINA PURA INTERNATIONAL</div></div>
-            <p>{lang === 'id' ? 'Layanan logistik kontainer terintegrasi untuk depot, repair, warehousing, dan trucking.' : 'Integrated container logistics for depot, repair, warehousing, and trucking.'}</p>
+            <p>{lang === 'id' ? 'Inland container terminal dan layanan logistik terintegrasi di Jakarta dan Semarang.' : 'Inland container terminal and integrated logistics services in Jakarta and Semarang.'}</p>
           </div>
           <div>
-            <strong>{lang === 'id' ? 'Akses Cepat' : 'Quick Access'}</strong>
+            <strong>{lang === 'id' ? 'OPERASIONAL' : 'OPERATIONS'}</strong>
+            <Link href={lang === 'id' ? '/id/services/' : '/services/'}>{lang === 'id' ? 'Layanan' : 'Services'}</Link>
+            <Link href={lang === 'id' ? '/id/facilities/' : '/facilities/'}>{lang === 'id' ? 'Fasilitas' : 'Facilities'}</Link>
             <a href={site.external.efaktur} target="_blank" rel="noreferrer">E-Faktur</a>
-            <Link href={lang === 'id' ? '/id/support/' : '/support/'}>FAQ & Support</Link>
-            <Link href={lang === 'id' ? '/id/contact/' : '/contact/'}>{lang === 'id' ? 'Jam Operasional' : 'Operational Hours'}</Link>
           </div>
           <div>
-            <strong>Jakarta</strong>
-            <span>{site.offices.jakarta.address}</span>
+            <strong>{lang === 'id' ? 'PERUSAHAAN' : 'COMPANY'}</strong>
+            <Link href={lang === 'id' ? '/id/about-us/' : '/about-us/'}>{lang === 'id' ? 'Tentang' : 'About'}</Link>
+            <Link href={lang === 'id' ? '/id/career/' : '/career/'}>{lang === 'id' ? 'Karier' : 'Career'}</Link>
+            <Link href={lang === 'id' ? '/id/news/' : '/news/'}>{lang === 'id' ? 'Berita' : 'News'}</Link>
+          </div>
+          <div>
+            <strong>{lang === 'id' ? 'KONTAK' : 'CONTACT'}</strong>
             <a href={`mailto:${site.contacts.depot}`}>{site.contacts.depot}</a>
-          </div>
-          <div>
-            <strong>Semarang</strong>
-            <span>{site.offices.semarang.address}</span>
-            <a href={`mailto:${site.offices.semarang.email}`}>{site.offices.semarang.email}</a>
+            <a href={`mailto:${site.contacts.warehouse}`}>{site.contacts.warehouse}</a>
+            <a href={`mailto:${site.contacts.trucking}`}>{site.contacts.trucking}</a>
           </div>
         </div>
-        <div className="container footerBottom">
+        <div className="container footerNewBottom">
           <span>© 2026 PT Multi Bina Pura International</span>
-          <span>Revamp concept - static GitHub Pages build</span>
+          <span>Jakarta • Semarang • Indonesia</span>
         </div>
       </footer>
     </>

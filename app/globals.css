@@ -6,3 +6,21 @@
 .serviceMeta svg,.serviceCard>a,.serviceRows svg,.contactCards svg,.quickGrid>a>svg:last-child{color:var(--brand-red)}
 .lightKicker{color:#ffd8dc}
 ::selection{background:var(--brand-green);color:#fff}
+
+/* Responsive navigation */
+.menuToggle{display:none;width:42px;height:42px;border:1px solid var(--line);background:#fff;padding:10px;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer}
+.menuToggle span{display:block;width:18px;height:1.5px;background:var(--ink);transition:.2s ease}
+.mobileMenu{display:none;background:rgba(247,247,245,.98);border-top:1px solid var(--line)}
+.mobileNav{display:flex;flex-direction:column;padding-top:8px;padding-bottom:18px}
+.mobileNav>a{display:grid;grid-template-columns:42px 1fr;gap:10px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line);font-size:17px;font-weight:650;letter-spacing:-.02em}
+.mobileNav>a span{font-size:9px;color:#9aa0a4;letter-spacing:.1em}
+.mobileNav .mobileQuote{margin-top:14px;padding:15px 16px;border:0;background:var(--brand-green);color:#fff;display:flex;justify-content:space-between}
+@media(max-width:1080px){
+  .menuToggle{display:flex}
+  .mobileMenu{display:block;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height .28s ease,opacity .2s ease}
+  .mobileMenu.isOpen{max-height:620px;opacity:1;pointer-events:auto}
+}
+@media(max-width:720px){
+  .navActions{gap:7px}
+  .quoteBtn{display:none}
+}

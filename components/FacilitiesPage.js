@@ -1,0 +1,13 @@
+import SiteShell from './SiteShell';
+import PageHero from './PageHero';
+import Icon from './Icon';
+import { site } from '../content/site';
+
+export default function FacilitiesPage({ lang='id' }) {
+  const id = lang === 'id';
+  return <SiteShell lang={lang}>
+    <PageHero index="03" kicker={id ? 'FASILITAS' : 'FACILITIES'} title={id ? 'Dua lokasi strategis dekat pelabuhan utama.' : 'Two strategic locations near major ports.'} intro={id ? 'Jakarta mendukung operasi depot, gudang, repair, reefer, dan trucking; Semarang memperluas jangkauan operasi di sekitar Tanjung Emas.' : 'Jakarta supports depot, warehouse, repair, reefer, and trucking operations; Semarang extends the network near Tanjung Emas.'}/>
+    <section className="section"><div className="container facilityGrid"><article><div className="facilityTop"><Icon name="location"/><span>01 / JAKARTA</span></div><h2>Jakarta Facility</h2><p>{id ? 'Berlokasi di timur laut Jakarta dan sekitar 11 km dari Pelabuhan Tanjung Priok.' : 'Located in north-east Jakarta, approximately 11 km from Tanjung Priok Port.'}</p><div className="facilityFacts"><span>Container Yard</span><span>CFS / Warehouse</span><span>Reefer Support</span><span>Container Equipment</span><span>Trailer Truck</span><span>24h Export Depot Operation</span></div><small>{site.offices.jakarta.address}</small></article><article><div className="facilityTop"><Icon name="location"/><span>02 / SEMARANG</span></div><h2>Semarang Facility</h2><p>{id ? 'Berlokasi di sisi utara Semarang, sekitar 4 km dari Pelabuhan Tanjung Emas.' : 'Located in north Semarang, approximately 4 km from Tanjung Emas Port.'}</p><div className="facilityFacts"><span>Container Yard</span><span>Side Loader</span><span>Forklift</span><span>Reefer Socket</span><span>Booking Release</span><span>Overtime by Request</span></div><small>{site.offices.semarang.address}</small></article></div></section>
+    <section className="section cautionBand"><div className="container cautionInner"><span className="sectionIndex">NOTE</span><div><h2>{id ? 'Angka kapasitas perlu divalidasi sebelum go-live.' : 'Capacity figures need validation before go-live.'}</h2><p>{id ? 'Website existing menampilkan beberapa counter fasilitas sebagai 0 pada hasil crawl. Pada revamp ini angka tersebut tidak kami fabrikasi; field kapasitas ditahan sampai data sumber resmi dikonfirmasi.' : 'The existing website exposes several facility counters as 0 in crawl results. This revamp does not fabricate capacity figures; numeric fields are intentionally withheld until verified source data is supplied.'}</p></div></div></section>
+  </SiteShell>;
+}

@@ -8,6 +8,7 @@ const GROUPS = [
   '.customerLogoGrid > div',
   '.premiumServiceGrid > *',
   '.premiumOpsGrid > div',
+  '.operationCapabilityGrid > article',
   '.premiumLocation',
   '.galleryGrid > *',
   '.valueGrid > *',

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import Icon from './Icon';
+import GlobalMotion from './GlobalMotion';
 import { site } from '../content/site';
 
 const nav = {
@@ -74,7 +75,7 @@ export default function SiteShell({ lang = 'id', children }) {
         </div>
       </header>
 
-      <main id="content">{children}</main>
+      <main id="content"><GlobalMotion/>{children}</main>
 
       <footer className="mbpiFooter">
         <div className="footerSignal"></div>

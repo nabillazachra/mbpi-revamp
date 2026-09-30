@@ -396,3 +396,68 @@
 .metricStatus.isVerified{display:inline-block;color:var(--brand-green)}
 .facilityMetricCard:has(.metricStatus.isVerified) .metricFields strong{color:var(--brand-green);font-size:28px}
 .facilityMetricCard:has(.metricStatus.isVerified){box-shadow:0 12px 30px rgba(20,122,70,.06)}
+
+
+/* Customers, gallery, branch history, detailed career, archive */
+.premiumCustomers{padding:62px 0;background:#fff;border-top:1px solid #ecece8;border-bottom:1px solid #ecece8}
+.customerIntro{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:26px}
+.customerIntro p{margin:0;color:#7a8084;font-size:12px}
+.customerLogoGrid{display:grid;grid-template-columns:repeat(5,1fr);border-left:1px solid #e4e5e1;border-top:1px solid #e4e5e1}
+.customerLogoGrid>div{min-height:120px;display:grid;place-items:center;padding:24px;background:#fff;border-right:1px solid #e4e5e1;border-bottom:1px solid #e4e5e1}
+.customerLogoGrid img{max-width:130px;max-height:54px;object-fit:contain;filter:grayscale(1);opacity:.78;transition:.2s ease}
+.customerLogoGrid>div:hover img{filter:none;opacity:1}
+.premiumGallery{padding:110px 0;background:#f7f6f2}
+.galleryGrid{display:grid;grid-template-columns:1.35fr .65fr;grid-template-rows:320px auto;gap:14px}
+.galleryGrid figure{margin:0;position:relative;overflow:hidden;background:#1a1f1c}
+.galleryLarge{grid-row:1/3}
+.galleryGrid img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(.96)}
+.galleryGrid figure:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.58))}
+.galleryGrid figcaption{position:absolute;z-index:2;left:22px;bottom:20px;color:#fff}
+.galleryGrid figcaption span,.galleryGrid figcaption strong{display:block}
+.galleryGrid figcaption span{font-size:8px;letter-spacing:.15em;color:#d4dad6}
+.galleryGrid figcaption strong{font-size:18px;margin-top:5px}
+.galleryStatement{background:#fff;padding:28px;display:flex;flex-direction:column;justify-content:flex-end}
+.galleryStatement p{color:#6d7478;line-height:1.7}
+.branchTimeline{border-top:1px solid var(--line)}
+.branchTimeline>article{display:grid;grid-template-columns:220px 1fr;gap:55px;padding:52px 0;border-bottom:1px solid var(--line)}
+.branchYear{font-size:74px;letter-spacing:-.065em;font-weight:620;color:#d9dbd8}
+.branchContent h2{font-size:42px;letter-spacing:-.045em;margin:10px 0 14px}
+.branchContent p{max-width:800px;color:#697075;line-height:1.72}
+.branchContent small{display:block;margin-top:22px;color:#8b9195;line-height:1.6}
+.careerDetailedList{display:flex;flex-direction:column;gap:26px}
+.careerDetailedCard{background:#fff;border:1px solid #e0e2de;padding:32px}
+.careerTitle{display:grid;grid-template-columns:48px 1fr;gap:20px}
+.careerTitle>span{font-size:10px;color:#9ca2a5}
+.careerTitle small{font-size:9px;letter-spacing:.12em;color:var(--brand-red)}
+.careerTitle h2{font-size:32px;letter-spacing:-.035em;margin:7px 0 10px}
+.careerTitle p{max-width:780px;color:#70767a;line-height:1.65}
+.careerColumns{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:28px 0 0;padding-top:26px;border-top:1px solid #e6e7e3}
+.careerColumns h3{font-size:15px;margin-bottom:12px}
+.careerColumns ul{margin:0;padding-left:18px}
+.careerColumns li{font-size:12px;line-height:1.55;margin:7px 0;color:#5e666b}
+.careerApply{display:flex;justify-content:space-between;gap:30px;align-items:center;margin-top:26px;padding-top:20px;border-top:1px solid #e6e7e3}
+.careerApply span{font-size:11px;color:#858b8f;max-width:780px}
+.careerApply a{display:inline-flex;gap:8px;align-items:center;font-size:11px;font-weight:800}
+.newsArchive{border-top:1px solid var(--line)}
+.newsArchive article{display:grid;grid-template-columns:50px 1fr auto;gap:30px;padding:30px 0;border-bottom:1px solid var(--line);align-items:start}
+.newsArchive article>span{font-size:10px;color:#9da2a5}
+.newsArchive small{font-size:9px;letter-spacing:.12em;color:var(--brand-red)}
+.newsArchive h2{font-size:28px;margin:7px 0 10px}
+.newsArchive p{color:#70767a;max-width:750px;line-height:1.65}
+.newsArchive a{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800}
+@media(max-width:1080px){
+  .customerLogoGrid{grid-template-columns:repeat(3,1fr)}
+  .galleryGrid{grid-template-columns:1fr;grid-template-rows:auto}
+  .galleryLarge{grid-row:auto}
+  .galleryGrid figure{min-height:320px}
+  .branchTimeline>article{grid-template-columns:1fr;gap:16px}
+  .branchYear{font-size:48px}
+}
+@media(max-width:720px){
+  .customerIntro{align-items:flex-start;flex-direction:column}
+  .customerLogoGrid{grid-template-columns:1fr 1fr}
+  .careerColumns{grid-template-columns:1fr}
+  .careerApply{align-items:flex-start;flex-direction:column}
+  .newsArchive article{grid-template-columns:34px 1fr}
+  .newsArchive a{grid-column:2}
+}

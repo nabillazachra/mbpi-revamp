@@ -379,3 +379,14 @@
 .facilityEquipmentHeader{border-top:0;padding-top:90px}
 .facilityEquipmentHeader:before{content:"";width:52px;height:4px;background:linear-gradient(90deg,var(--brand-red) 0 50%,var(--brand-green) 50%);display:block;grid-column:1/-1;margin-bottom:22px}
 .facilityDataNotice{background:#202723}
+
+
+/* Verified facility facts */
+.publishedFacts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;margin-top:28px;background:#dfe2dd}
+.publishedFacts>div{background:#fff;padding:18px 16px}
+.publishedFacts strong,.publishedFacts span{display:block}
+.publishedFacts strong{font-size:24px;letter-spacing:-.03em;color:var(--brand-green)}
+.publishedFacts span{font-size:9px;line-height:1.5;letter-spacing:.04em;color:#8a9094;margin-top:6px}
+.metricFields strong{font-size:15px;line-height:1.25;color:#9aa0a4}
+@media(max-width:1080px){.publishedFacts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.publishedFacts{grid-template-columns:1fr}}

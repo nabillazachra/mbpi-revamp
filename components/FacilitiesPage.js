@@ -1,30 +1,186 @@
+import Link from 'next/link';
 import SiteShell from './SiteShell';
 import PageHero from './PageHero';
 import Icon from './Icon';
-import { site, facilities } from '../content/site';
+import { site } from '../content/site';
 
-function FacilityBlock({ title, code, office, data, lang }) {
-  const id = lang === 'id';
-  return <article className="facilityExpanded">
-    <div className="facilityTop"><Icon name="location"/><span>{code}</span></div>
-    <h2>{title}</h2>
-    <p>{id ? data.distanceId : data.distanceEn}</p>
-    {data.warehouseId && <><h3>Warehouse & CFS</h3><div className="facilityFacts">{(id ? data.warehouseId : data.warehouseEn).map(x=><span key={x}>{x}</span>)}</div></>}
-    <h3>Equipment & Capability</h3>
-    <div className="facilityFacts">{data.equipment.map(x=><span key={x}>{x}</span>)}</div>
-    <div className="facilityNote">{id ? data.noteId : data.noteEn}</div>
-    <small>{office.address}</small>
+function MetricCard({ title, fields }) {
+  return <article className="facilityMetricCard">
+    <span className="metricStatus">SOURCE VALUE TO VERIFY</span>
+    <h4>{title}</h4>
+    <div className="metricFields">
+      {fields.map((field) => <div key={field}><strong>—</strong><span>{field}</span></div>)}
+    </div>
   </article>;
+}
+
+function FeatureList({ items }) {
+  return <div className="facilityFeatureList">
+    {items.map((item, index) => <div key={item}><span>{String(index + 1).padStart(2, '0')}</span><p>{item}</p></div>)}
+  </div>;
+}
+
+function JakartaFacility({ lang }) {
+  const id = lang === 'id';
+  return <section className="facilityDetail">
+    <div className="facilityDetailHeader">
+      <div><span className="sectionIndex">01</span><span className="kicker">JAKARTA FACILITY</span></div>
+      <div>
+        <h2>{id ? 'Fasilitas Jakarta' : 'Jakarta Facility'}</h2>
+        <p>{id ? 'Berlokasi di timur laut Kota Jakarta, sekitar 11 km dari Pelabuhan Tanjung Priok.' : 'Located in north-east Jakarta, approximately 11 km from Tanjung Priok Port.'}</p>
+      </div>
+    </div>
+
+    <div className="facilityDetailSection">
+      <div className="facilitySectionTitle"><span>AREA</span><h3>Container Yard</h3></div>
+      <div className="facilityMetricGrid two">
+        <MetricCard title={id ? 'Luas Total Container Yard' : 'Total Container Yard Area'} fields={['㎡']} />
+        <MetricCard title={id ? 'Kapasitas Penyimpanan' : 'Storage Capacity'} fields={['TEUs']} />
+      </div>
+    </div>
+
+    <div className="facilityDetailSection">
+      <div className="facilitySectionTitle"><span>WAREHOUSE</span><h3>{id ? 'Gudang' : 'Warehouse'}</h3></div>
+      <FeatureList items={id ? [
+        'Loading Dock dengan lebar 4 meter.',
+        'Loading Dock mampu mengakomodasi 12 truk/trailer sekaligus pada masing-masing gudang.',
+        'Area Stuffing tersedia untuk 100 kontainer kosong.'
+      ] : [
+        '4-metre-wide Loading Dock.',
+        'Loading Dock accommodates up to 12 trucks/trailers simultaneously at each warehouse.',
+        'Stuffing Area is available for 100 empty containers.'
+      ]}/>
+    </div>
+
+    <div className="facilityDetailSection splitSections">
+      <div>
+        <div className="facilitySectionTitle"><span>CFS I</span><h3>CFS I</h3></div>
+        <div className="facilityMetricGrid">
+          <MetricCard title={id ? 'Area Dalam Gudang' : 'Indoor Warehouse Area'} fields={['㎡']} />
+          <MetricCard title="Loading Dock" fields={['㎡']} />
+        </div>
+      </div>
+      <div>
+        <div className="facilitySectionTitle"><span>CFS III</span><h3>CFS III</h3></div>
+        <div className="facilityMetricGrid">
+          <MetricCard title={id ? 'Area Dalam Gudang' : 'Indoor Warehouse Area'} fields={['㎡']} />
+          <MetricCard title="Loading Dock" fields={['㎡']} />
+        </div>
+      </div>
+    </div>
+
+    <div className="facilityEquipmentHeader">
+      <span className="sectionIndex">EQUIPMENT</span>
+      <h2>{id ? 'Peralatan Jakarta' : 'Jakarta Equipment'}</h2>
+    </div>
+
+    <div className="facilityDetailSection">
+      <div className="facilitySectionTitle"><span>EMPTY</span><h3>Empty Container Equipment</h3></div>
+      <div className="facilityMetricGrid two">
+        <MetricCard title="Side Loader / Class 01" fields={[id ? 'High / Tier' : 'High / Tier', id ? 'Unit' : 'Units']} />
+        <MetricCard title="Side Loader / Class 02" fields={[id ? 'High / Tier' : 'High / Tier', id ? 'Unit' : 'Units']} />
+      </div>
+    </div>
+
+    <div className="facilityDetailSection">
+      <div className="facilitySectionTitle"><span>FULL</span><h3>Full Container Equipment</h3></div>
+      <div className="facilityMetricGrid two">
+        <MetricCard title="Reach Stacker" fields={['Ton', id ? 'Unit' : 'Units']} />
+        <MetricCard title="Top Loader" fields={['Ton', id ? 'Unit' : 'Units']} />
+      </div>
+    </div>
+
+    <div className="facilityDetailSection">
+      <div className="facilitySectionTitle"><span>LIFTING</span><h3>Forklift</h3></div>
+      <div className="facilityMetricGrid four">
+        <MetricCard title={id ? 'Forklift Elektrik' : 'Electric Forklift'} fields={['Ton', id ? 'Unit' : 'Units']} />
+        <MetricCard title={id ? 'Forklift Diesel / Class 01' : 'Diesel Forklift / Class 01'} fields={['Ton', id ? 'Unit' : 'Units']} />
+        <MetricCard title={id ? 'Forklift Diesel / Class 02' : 'Diesel Forklift / Class 02'} fields={['Ton', id ? 'Unit' : 'Units']} />
+        <MetricCard title={id ? 'Forklift Diesel / Class 03' : 'Diesel Forklift / Class 03'} fields={['Ton', id ? 'Unit' : 'Units']} />
+      </div>
+    </div>
+
+    <div className="facilityDetailSection">
+      <div className="facilitySectionTitle"><span>REEFER</span><h3>Reefer Container Plug</h3></div>
+      <div className="facilityMetricGrid">
+        <MetricCard title="Socket" fields={['A / (380–400V)', id ? 'Unit' : 'Units']} />
+      </div>
+    </div>
+
+    <div className="facilityDetailSection">
+      <div className="facilitySectionTitle"><span>TRAILER</span><h3>Trailer Truck</h3></div>
+      <div className="facilityMetricGrid four">
+        <MetricCard title="Head Truck / Class 01" fields={['Ton', id ? 'Unit' : 'Units']} />
+        <MetricCard title="Head Truck / Class 02" fields={['Ton', id ? 'Unit' : 'Units']} />
+        <MetricCard title="Head Truck / Class 03" fields={['Ton', id ? 'Unit' : 'Units']} />
+        <MetricCard title="Head Truck / Class 04" fields={['Ton', id ? 'Unit' : 'Units']} />
+        <MetricCard title="Container Chassis / Class 01" fields={['Feet', id ? 'Unit' : 'Units']} />
+        <MetricCard title="Container Chassis / Class 02" fields={['Feet', id ? 'Unit' : 'Units']} />
+      </div>
+    </div>
+
+    <div className="facilityLocationBar"><Icon name="location" size={18}/><span>{site.offices.jakarta.address}</span></div>
+  </section>;
+}
+
+function SemarangFacility({ lang }) {
+  const id = lang === 'id';
+  return <section className="facilityDetail facilitySemarang">
+    <div className="facilityDetailHeader">
+      <div><span className="sectionIndex">02</span><span className="kicker">SEMARANG FACILITY</span></div>
+      <div>
+        <h2>{id ? 'Fasilitas Semarang' : 'Semarang Facility'}</h2>
+        <p>{id ? 'Berlokasi di sisi utara Semarang, sekitar 4 km dari Pelabuhan Tanjung Emas.' : 'Located on the north side of Semarang, approximately 4 km from Tanjung Emas Port.'}</p>
+      </div>
+    </div>
+
+    <div className="facilityDetailSection">
+      <div className="facilitySectionTitle"><span>AREA</span><h3>Container Yard</h3></div>
+      <div className="facilityMetricGrid two">
+        <MetricCard title={id ? 'Luas Total Container Yard' : 'Total Container Yard Area'} fields={['㎡']} />
+        <MetricCard title={id ? 'Kapasitas Penyimpanan' : 'Storage Capacity'} fields={['TEUs']} />
+      </div>
+    </div>
+
+    <div className="facilityEquipmentHeader">
+      <span className="sectionIndex">EQUIPMENT</span>
+      <h2>{id ? 'Peralatan Semarang' : 'Semarang Equipment'}</h2>
+    </div>
+
+    <div className="facilityDetailSection">
+      <div className="facilitySectionTitle"><span>EMPTY</span><h3>Empty Container Equipment</h3></div>
+      <div className="facilityMetricGrid">
+        <MetricCard title="Side Loader" fields={['Tier', id ? 'Unit' : 'Units']} />
+      </div>
+    </div>
+
+    <div className="facilityDetailSection">
+      <div className="facilitySectionTitle"><span>LIFTING</span><h3>Forklift & Reefer</h3></div>
+      <div className="facilityMetricGrid two">
+        <MetricCard title={id ? 'Forklift Diesel' : 'Diesel Forklift'} fields={['Ton', id ? 'Unit' : 'Units']} />
+        <MetricCard title="Socket" fields={['A / (380–400V)', id ? 'Unit' : 'Units']} />
+      </div>
+    </div>
+
+    <div className="facilityLocationBar"><Icon name="location" size={18}/><span>{site.offices.semarang.address}</span></div>
+  </section>;
 }
 
 export default function FacilitiesPage({ lang='id' }) {
   const id = lang === 'id';
+  const prefix = id ? '/id' : '';
   return <SiteShell lang={lang}>
-    <PageHero index="03" kicker={id ? 'FASILITAS' : 'FACILITIES'} title={id ? 'Detail fasilitas Jakarta dan Semarang.' : 'Jakarta and Semarang facility details.'} intro={id ? 'Informasi fasilitas existing dipertahankan, termasuk warehouse/CFS dan jenis equipment. Angka counter yang terbaca 0 dari website lama tidak ditampilkan sebagai data produksi.' : 'Legacy facility information is preserved, including warehouse/CFS and equipment types. Numeric counters exposed as 0 on the old site are not presented as production data.'}/>
-    <section className="section"><div className="container facilityGrid">
-      <FacilityBlock title="Jakarta Facility" code="01 / JAKARTA" office={site.offices.jakarta} data={facilities.jakarta} lang={lang}/>
-      <FacilityBlock title="Semarang Facility" code="02 / SEMARANG" office={site.offices.semarang} data={facilities.semarang} lang={lang}/>
+    <PageHero index="04" kicker={id ? 'FASILITAS' : 'FACILITIES'} title={id ? 'Fasilitas operasional, ditampilkan selengkap struktur existing.' : 'Operational facilities, preserving the full legacy structure.'} intro={id ? 'Setiap blok Area, Container Yard, Warehouse, CFS, equipment, reefer, dan trailer dipertahankan. Nilai counter yang belum bisa diverifikasi tetap ditampilkan sebagai field, tetapi tidak diisi angka yang berpotensi salah.' : 'Every Area, Container Yard, Warehouse, CFS, equipment, reefer, and trailer block is retained. Counter fields remain visible, but unverified values are not presented as factual numbers.'}/>
+    <section className="facilityPageWrap"><div className="container">
+      <JakartaFacility lang={lang}/>
+      <SemarangFacility lang={lang}/>
     </div></section>
-    <section className="section cautionBand"><div className="container cautionInner"><span className="sectionIndex">DATA</span><div><h2>{id ? 'Konten lengkap, angka hanya jika terverifikasi.' : 'Complete content, verified numbers only.'}</h2><p>{id ? 'Pendekatan ini menjaga konteks website existing tanpa mempublikasikan angka kapasitas atau jumlah equipment yang tidak bisa diverifikasi dari source yang tersedia.' : 'This approach preserves legacy-site context without publishing capacity or equipment figures that cannot be verified from the available source.'}</p></div></div></section>
+    <section className="facilityDataNotice">
+      <div className="container facilityDataNoticeInner">
+        <div><span className="kicker">{id ? 'VALIDASI DATA' : 'DATA VALIDATION'}</span><h2>{id ? 'Kenapa beberapa angka belum tampil?' : 'Why are some figures not shown yet?'}</h2></div>
+        <p>{id ? 'Halaman existing menggunakan counter visual. Hasil crawl publik saat ini mengembalikan nilai 0 untuk luas, kapasitas, tonase, tier, ampere, feet, dan jumlah unit. Karena itu, struktur informasinya kami pertahankan 1:1 tetapi angka produksinya menunggu sumber resmi yang bisa diverifikasi.' : 'The legacy facility pages use animated counters. Current public crawl results return 0 for area, capacity, tonnage, tier, amperage, feet, and unit counts. The information structure is therefore retained 1:1 while production figures await a verifiable official source.'}</p>
+      </div>
+    </section>
+    <section className="ctaBand"><div className="container ctaInner"><div><div className="kicker lightKicker">{id ? 'BUTUH DETAIL FASILITAS?' : 'NEED FACILITY DETAILS?'}</div><h2>{id ? 'Hubungi tim MBPI untuk data kapasitas terbaru.' : 'Contact MBPI for the latest verified capacity data.'}</h2></div><Link className="lightBtn" href={`${prefix}/contact/`}>{id ? 'Hubungi Kami' : 'Contact Us'} <Icon name="arrow" size={18}/></Link></div></section>
   </SiteShell>;
 }

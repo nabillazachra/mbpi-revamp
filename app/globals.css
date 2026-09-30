@@ -244,3 +244,138 @@
   .facilityDetailHeader h2{font-size:46px}
   .facilityEquipmentHeader h2{font-size:34px}
 }
+
+
+/* =========================================================
+   PREMIUM CORPORATE REDESIGN
+   Visual hierarchy intentionally moves away from dashboard UI.
+   ========================================================= */
+.premiumHero{padding:150px 0 0;background:#f6f5f1;overflow:hidden}
+.premiumHeroGrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:stretch;min-height:610px}
+.premiumHeroCopy{display:flex;flex-direction:column;justify-content:center;padding:45px 0 75px}
+.premiumEyebrow{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.18em;color:var(--brand-red);text-transform:uppercase}
+.premiumHero h1{font-size:clamp(58px,6.5vw,92px);line-height:.93;letter-spacing:-.065em;font-weight:560;margin:24px 0 28px;max-width:780px}
+.premiumHero h1 em{font-style:normal;color:var(--brand-green)}
+.premiumHeroCopy>p{font-size:16px;line-height:1.75;color:#626a6f;max-width:620px}
+.premiumHeroActions{display:flex;gap:12px;margin-top:34px}
+.premiumPrimary,.premiumSecondary{min-height:50px;padding:0 20px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:11px;font-weight:800}
+.premiumPrimary{background:var(--brand-red);color:#fff}
+.premiumPrimary:hover{background:var(--brand-red-dark)}
+.premiumSecondary{border:1px solid #bfc3bf;background:#fff}
+
+.premiumHeroVisual{position:relative;min-height:610px;background:linear-gradient(145deg,#1c2320,#28312d 60%,#131815);overflow:hidden}
+.premiumHeroVisual:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.56));z-index:4}
+.visualWash{position:absolute;inset:0;background:radial-gradient(circle at 78% 18%,rgba(255,255,255,.14),transparent 30%),linear-gradient(120deg,rgba(200,32,47,.2),transparent 38%),linear-gradient(300deg,rgba(20,122,70,.25),transparent 42%)}
+.visualStacks{position:absolute;display:grid;gap:6px;z-index:2}
+.visualStacks i{display:block;width:168px;height:46px;border:1px solid rgba(255,255,255,.16);background:linear-gradient(90deg,#37423d,#232a27);box-shadow:0 7px 15px rgba(0,0,0,.18)}
+.visualStacks i:after{content:"";display:block;width:12px;height:100%;border-right:1px solid rgba(255,255,255,.15)}
+.visualStacksA{left:8%;bottom:22%;grid-template-columns:repeat(2,168px)}
+.visualStacksB{right:5%;bottom:34%}
+.visualStacksB i{background:linear-gradient(90deg,#5b2c2c,#332121)}
+.visualCrane{position:absolute;right:20%;top:11%;width:8px;height:360px;background:#8e9690;z-index:1}
+.visualCrane:before{content:"";position:absolute;width:230px;height:8px;background:#8e9690;right:-30px;top:0}
+.visualCrane:after{content:"";position:absolute;width:1px;height:180px;background:#aeb4b0;right:34px;top:8px}
+.visualTruck{position:absolute;right:9%;bottom:12%;width:160px;height:45px;background:#d7d8d4;z-index:3}
+.visualTruck:before,.visualTruck:after{content:"";position:absolute;bottom:-13px;width:25px;height:25px;border-radius:50%;background:#101312}
+.visualTruck:before{left:24px}.visualTruck:after{right:22px}
+.visualTruck span{position:absolute;right:0;top:-34px;width:54px;height:36px;background:var(--brand-red)}
+.visualCaption{position:absolute;z-index:5;left:28px;bottom:26px;color:#fff}
+.visualCaption span{font-size:46px;font-weight:900;letter-spacing:-.06em;display:block}
+.visualCaption small{font-size:8px;letter-spacing:.18em;color:#c6cbc8}
+.premiumStats{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;margin-top:-1px}
+.premiumStats div{padding:25px 26px;border-right:1px solid #e1e2de}
+.premiumStats div:last-child{border-right:0}
+.premiumStats strong,.premiumStats span{display:block}
+.premiumStats strong{font-size:22px;letter-spacing:-.03em}
+.premiumStats span{font-size:9px;text-transform:uppercase;letter-spacing:.13em;color:#92989c;margin-top:6px}
+
+.premiumIntro{padding:120px 0;background:#fff}
+.premiumIntroGrid{display:grid;grid-template-columns:.35fr 1.15fr .65fr;gap:55px;align-items:start}
+.premiumSectionNo{display:inline-block;font-size:10px;color:#9aa0a4;margin-right:15px}
+.premiumSectionNo.light{color:#69726d}
+.premiumIntro h2,.premiumSectionHead h2,.premiumNetwork h2,.premiumCta h2{font-size:clamp(42px,5vw,68px);line-height:.98;letter-spacing:-.052em;font-weight:560;margin:0}
+.premiumIntroCopy p{margin:0 0 28px;color:#687075;line-height:1.75}
+.premiumTextLink{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:800;border-bottom:1px solid #c8cbc7;padding-bottom:6px}
+
+.premiumServices{padding:110px 0;background:#f1f1ed}
+.premiumSectionHead{display:grid;grid-template-columns:.45fr 1.55fr;gap:55px;align-items:start;margin-bottom:48px}
+.premiumServiceGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.premiumServiceCard{min-height:330px;padding:30px;background:#fff;display:grid;grid-template-rows:auto 1fr auto;transition:transform .2s ease,box-shadow .2s ease}
+.premiumServiceCard:hover{transform:translateY(-4px);box-shadow:0 20px 45px rgba(22,28,25,.08)}
+.premiumServiceCard2,.premiumServiceCard4{background:#e6ebe7}
+.premiumServiceTop{display:flex;justify-content:space-between;align-items:center}
+.premiumServiceTop>span{font-size:10px;color:#9a9fa2}
+.premiumServiceTop svg{color:var(--brand-green)}
+.premiumServiceCard h3{font-size:34px;letter-spacing:-.04em;margin:68px 0 14px}
+.premiumServiceCard p{color:#6d7478;line-height:1.65;max-width:560px}
+.premiumServiceCard>svg{color:var(--brand-red);justify-self:end}
+
+.premiumNetwork{padding:115px 0;background:#171d1a;color:#fff}
+.premiumNetworkGrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
+.premiumEyebrowLight{color:#79bd92}
+.premiumNetworkCopy p{color:#aab1ad;line-height:1.75;max-width:500px;margin:28px 0}
+.lightLink{color:#fff;border-color:#4a554f}
+.premiumLocationList{border-top:1px solid #39423d}
+.premiumLocation{display:grid;grid-template-columns:160px 1fr auto;gap:26px;align-items:center;padding:24px 0;border-bottom:1px solid #39423d}
+.locationArt{height:112px;position:relative;overflow:hidden;background:linear-gradient(145deg,#2d3933,#17201c)}
+.locationArt:before{content:"";position:absolute;inset:22px 16px;background:repeating-linear-gradient(0deg,#77827b 0 8px,#35403a 8px 16px);opacity:.68}
+.locationArt span{position:absolute;left:12px;bottom:9px;z-index:2;font-size:11px;font-weight:900;letter-spacing:.18em}
+.semarangArt{background:linear-gradient(145deg,#3b2a2b,#1c1919)}
+.premiumLocation small{font-size:8px;letter-spacing:.13em;color:#8d9892}
+.premiumLocation h3{font-size:26px;margin:7px 0 6px}
+.premiumLocation p{font-size:11px;color:#909b95;margin:0}
+.premiumLocation>svg{color:#fff}
+
+.premiumOperations{padding:110px 0;background:#fff}
+.premiumOpsGrid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #d9dbd7;border-left:1px solid #d9dbd7}
+.premiumOpsGrid>div{min-height:160px;padding:24px;border-right:1px solid #d9dbd7;border-bottom:1px solid #d9dbd7;display:flex;flex-direction:column;justify-content:space-between}
+.premiumOpsGrid span{font-size:9px;color:#9da2a5}
+.premiumOpsGrid strong{font-size:19px;max-width:240px}
+
+.premiumCta{padding:78px 0;background:var(--brand-red);color:#fff}
+.premiumCtaInner{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center}
+.premiumCta h2{max-width:820px;margin-top:12px}
+.premiumCtaButton{min-height:54px;padding:0 22px;background:#fff;color:var(--ink);display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:800}
+
+@media(max-width:1080px){
+  .premiumHeroGrid,.premiumIntroGrid,.premiumSectionHead,.premiumNetworkGrid{grid-template-columns:1fr}
+  .premiumHero{padding-top:110px}
+  .premiumHeroVisual{min-height:520px}
+  .premiumIntroGrid,.premiumSectionHead{gap:28px}
+  .premiumServiceGrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .premiumHero{padding-top:96px}
+  .premiumHeroGrid{gap:0}
+  .premiumHeroCopy{padding:38px 0 55px}
+  .premiumHero h1{font-size:50px}
+  .premiumHeroActions{flex-direction:column;align-items:stretch}
+  .premiumHeroVisual{min-height:410px}
+  .visualStacksA{left:4%;transform:scale(.75);transform-origin:left bottom}
+  .visualStacksB{right:-4%;transform:scale(.75);transform-origin:right bottom}
+  .premiumStats{grid-template-columns:1fr 1fr}
+  .premiumStats div:nth-child(2){border-right:0}
+  .premiumStats div:nth-child(-n+2){border-bottom:1px solid #e1e2de}
+  .premiumIntro,.premiumServices,.premiumNetwork,.premiumOperations{padding:78px 0}
+  .premiumServiceGrid,.premiumOpsGrid{grid-template-columns:1fr}
+  .premiumLocation{grid-template-columns:100px 1fr 20px;gap:14px}
+  .locationArt{height:90px}
+  .premiumCtaInner{grid-template-columns:1fr}
+  .premiumCtaButton{justify-self:start}
+}
+
+/* Facility visual refinement: less dashboard-like */
+.facilityPageWrap{background:#f7f6f2}
+.facilityDetail{padding-top:125px}
+.facilityDetailHeader{padding-bottom:20px}
+.facilityDetailHeader h2{font-weight:540}
+.facilityDetailSection{padding:48px 0 54px}
+.facilityMetricCard{border:0;background:#fff;min-height:180px;padding:28px;box-shadow:0 10px 28px rgba(26,31,28,.035)}
+.metricStatus{display:none}
+.facilityMetricCard h4{font-size:20px;margin:4px 0 54px}
+.metricFields{border-top:1px solid #ecece8}
+.metricFields strong{color:#b0b5b1;font-size:30px}
+.facilityFeatureList>div{background:#fff;padding:20px 22px;margin-bottom:2px;border:0}
+.facilityEquipmentHeader{border-top:0;padding-top:90px}
+.facilityEquipmentHeader:before{content:"";width:52px;height:4px;background:linear-gradient(90deg,var(--brand-red) 0 50%,var(--brand-green) 50%);display:block;grid-column:1/-1;margin-bottom:22px}
+.facilityDataNotice{background:#202723}

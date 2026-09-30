@@ -1,0 +1,16 @@
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] || '';
+const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
+const isUserSite = repoName.endsWith('.github.io');
+const basePath = isGithubActions && repoName && !isUserSite ? `/${repoName}` : '';
+
+const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
+  basePath,
+  assetPrefix: basePath || undefined,
+  images: { unoptimized: true },
+  poweredByHeader: false,
+  reactStrictMode: true
+};
+
+export default nextConfig;

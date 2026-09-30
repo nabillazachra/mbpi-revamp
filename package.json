@@ -1,0 +1,21 @@
+{
+  "name": "mbpi-revamp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Modern static website revamp concept for PT Multi Bina Pura International.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "check": "next build",
+    "audit:prod": "npm audit --omit=dev --audit-level=high"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "dependencies": {
+    "next": "16.3.7",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  }
+}

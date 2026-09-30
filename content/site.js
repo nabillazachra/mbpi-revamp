@@ -34,7 +34,9 @@ export const site = {
   external: {
     efaktur: 'https://efaktur.mbpi.co.id/admin/login',
     existingSite: 'https://mbpi.co.id',
-    shipmentLink: 'https://www.shipmentlink.com/servlet/TDB1_CargoTracking.do'
+    shipmentLink: 'https://www.shipmentlink.com/servlet/TDB1_CargoTracking.do',
+    damagePhotos: 'https://img.mbpi.co.id/',
+    cfsConsol: 'https://bizp.mbpi.biz.id/'
   }
 };
 

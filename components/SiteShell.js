@@ -8,10 +8,10 @@ import { site } from '../content/site';
 
 const nav = {
   id: [
-    ['Tentang', '/id/about-us/'], ['Layanan', '/id/services/'], ['Fasilitas', '/id/facilities/'], ['Dukungan', '/id/support/'], ['Berita', '/id/news/'], ['Karier', '/id/career/'], ['Kontak', '/id/contact/']
+    ['Tentang', '/id/about-us/'], ['Layanan', '/id/services/'], ['Cabang', '/id/branches/'], ['Fasilitas', '/id/facilities/'], ['Dukungan', '/id/support/'], ['Berita', '/id/news/'], ['Karier', '/id/career/'], ['Kontak', '/id/contact/']
   ],
   en: [
-    ['About', '/about-us/'], ['Services', '/services/'], ['Facilities', '/facilities/'], ['Support', '/support/'], ['News', '/news/'], ['Career', '/career/'], ['Contact', '/contact/']
+    ['About', '/about-us/'], ['Services', '/services/'], ['Branches', '/branches/'], ['Facilities', '/facilities/'], ['Support', '/support/'], ['News', '/news/'], ['Career', '/career/'], ['Contact', '/contact/']
   ]
 };
 

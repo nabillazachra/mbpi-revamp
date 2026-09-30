@@ -188,19 +188,21 @@ function SemarangFacility({ lang }) {
   </section>;
 }
 
-export default function FacilitiesPage({ lang='id' }) {
+export default function FacilitiesPage({ lang='id', focus=null }) {
   const id = lang === 'id';
   const prefix = id ? '/id' : '';
   return <SiteShell lang={lang}>
-    <PageHero index="04" kicker={id ? 'FASILITAS' : 'FACILITIES'} title={id ? 'Fasilitas operasional, ditampilkan selengkap struktur existing.' : 'Operational facilities, preserving the full legacy structure.'} intro={id ? 'Data Jakarta dan Semarang Facility sudah direstore dari screenshot website existing, termasuk area, kapasitas, CFS, equipment, reefer, dan trailer.' : 'Jakarta and Semarang Facility data has been restored from the legacy website screenshots, including area, capacity, CFS, equipment, reefer, and trailer figures.'}/>
+    <PageHero index="04" kicker={id ? 'FASILITAS' : 'FACILITIES'}
+      title={focus === 'jakarta' ? (id ? 'Fasilitas Jakarta.' : 'Jakarta Facility.') : focus === 'semarang' ? (id ? 'Fasilitas Semarang.' : 'Semarang Facility.') : (id ? 'Fasilitas operasional, ditampilkan selengkap struktur existing.' : 'Operational facilities, preserving the full legacy structure.')}
+      intro={focus === 'jakarta' ? (id ? 'Data Jakarta Facility direstore dari screenshot website existing, termasuk area, CFS, equipment, reefer, dan trailer.' : 'Jakarta Facility data is restored from the legacy website screenshot, including area, CFS, equipment, reefer, and trailer figures.') : focus === 'semarang' ? (id ? 'Data Semarang Facility direstore dari screenshot website existing, termasuk area, kapasitas, side loader, forklift, dan reefer plug.' : 'Semarang Facility data is restored from the legacy website screenshot, including area, capacity, side loader, forklift, and reefer plug.') : (id ? 'Data Jakarta dan Semarang Facility sudah direstore dari screenshot website existing, termasuk area, kapasitas, CFS, equipment, reefer, dan trailer.' : 'Jakarta and Semarang Facility data has been restored from the legacy website screenshots, including area, capacity, CFS, equipment, reefer, and trailer figures.')}/>
     <section className="facilityPageWrap"><div className="container">
-      <JakartaFacility lang={lang}/>
-      <SemarangFacility lang={lang}/>
+      {(!focus || focus === 'jakarta') && <JakartaFacility lang={lang}/>}
+      {(!focus || focus === 'semarang') && <SemarangFacility lang={lang}/>}
     </div></section>
     <section className="facilityDataNotice">
       <div className="container facilityDataNoticeInner">
-        <div><span className="kicker">{id ? 'VALIDASI DATA' : 'DATA VALIDATION'}</span><h2>{id ? 'Jakarta dan Semarang sudah direstore dari source visual existing.' : 'Jakarta and Semarang have been restored from legacy visual sources.'}</h2></div>
-        <p>{id ? 'Seluruh metric utama pada halaman ini diambil dari screenshot halaman Jakarta Facility dan Semarang Facility existing yang diberikan, sehingga tidak lagi menggunakan counter hasil crawl yang terbaca 0.' : 'All primary metrics on this page were restored from the supplied legacy Jakarta Facility and Semarang Facility screenshots, replacing the public crawler counters that were exposed as 0.'}</p>
+        <div><span className="kicker">{id ? 'VALIDASI DATA' : 'DATA VALIDATION'}</span><h2>{focus === 'jakarta' ? (id ? 'Data Jakarta sudah direstore dari source visual existing.' : 'Jakarta data has been restored from a legacy visual source.') : focus === 'semarang' ? (id ? 'Data Semarang sudah direstore dari source visual existing.' : 'Semarang data has been restored from a legacy visual source.') : (id ? 'Jakarta dan Semarang sudah direstore dari source visual existing.' : 'Jakarta and Semarang have been restored from legacy visual sources.')}</h2></div>
+        <p>{focus ? (id ? 'Metric utama pada halaman ini diambil dari screenshot facility existing yang diberikan, sehingga tidak menggunakan counter hasil crawl yang terbaca 0.' : 'Primary metrics on this page were restored from the supplied legacy facility screenshot instead of the public crawler counters exposed as 0.') : (id ? 'Seluruh metric utama pada halaman ini diambil dari screenshot halaman Jakarta Facility dan Semarang Facility existing yang diberikan, sehingga tidak lagi menggunakan counter hasil crawl yang terbaca 0.' : 'All primary metrics on this page were restored from the supplied legacy Jakarta Facility and Semarang Facility screenshots, replacing the public crawler counters that were exposed as 0.')}</p>
       </div>
     </section>
     <section className="ctaBand"><div className="container ctaInner"><div><div className="kicker lightKicker">{id ? 'BUTUH DETAIL FASILITAS?' : 'NEED FACILITY DETAILS?'}</div><h2>{id ? 'Hubungi tim MBPI untuk data kapasitas terbaru.' : 'Contact MBPI for the latest verified capacity data.'}</h2></div><Link className="lightBtn" href={`${prefix}/contact/`}>{id ? 'Hubungi Kami' : 'Contact Us'} <Icon name="arrow" size={18}/></Link></div></section>

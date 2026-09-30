@@ -54,6 +54,22 @@ export default function HomePage({ lang = 'id' }) {
       </div>
     </section>
 
+    <section className="premiumCustomers">
+      <div className="container">
+        <div className="customerIntro">
+          <span className="premiumEyebrow">{id ? 'OUR CUSTOMERS' : 'OUR CUSTOMERS'}</span>
+          <p>{id ? 'Customer dan partner yang ditampilkan pada website existing MBPI.' : 'Customers and partners presented on the existing MBPI website.'}</p>
+        </div>
+        <div className="customerLogoGrid">
+          <div><img src="https://mbpi.co.id/wp-content/uploads/elementor/thumbs/1030px-Evergreen_Line_Logo.svg-oyapn3igt9n8773iulnftlevhxp9q6h0qnzbm4a4p6.png" alt="Evergreen Line"/></div>
+          <div><img src="https://mbpi.co.id/wp-content/uploads/elementor/thumbs/triton-international-limited-logo-vector33-oyauh3exx7u1cmcutt99doqm5o3al589zvf1q2akwa.png" alt="Triton International"/></div>
+          <div><img src="https://mbpi.co.id/wp-content/uploads/elementor/thumbs/sea-cube-oyaul9t4apjwy8aefm9kgmsd7bi0sptbwjsqic3l8q.png" alt="SeaCube"/></div>
+          <div><img src="https://mbpi.co.id/wp-content/uploads/elementor/thumbs/logo-oyau36eyqis7ggkl3ap3yp5xjaonmgzcezp8xkxf0q.png" alt="Econship"/></div>
+          <div><img src="https://mbpi.co.id/wp-content/uploads/elementor/thumbs/logoawdawd-oyauo57d6hhgfc47nuyj2wp2jpcebf7syrk5arua8a.png" alt="Maxicon"/></div>
+        </div>
+      </div>
+    </section>
+
     <section className="premiumServices">
       <div className="container">
         <div className="premiumSectionHead">
@@ -79,7 +95,7 @@ export default function HomePage({ lang = 'id' }) {
           <span className="premiumSectionNo light">03</span>
           <span className="premiumEyebrow premiumEyebrowLight">{id ? 'JARINGAN OPERASI' : 'OPERATING NETWORK'}</span>
           <h2>{id ? 'Dekat pelabuhan. Dekat dengan arus bisnis.' : 'Close to ports. Close to the flow of business.'}</h2>
-          <p>{id ? 'Dua lokasi operasi MBPI mendukung container handling, repair, warehousing, dan transportasi di dua koridor pelabuhan utama.' : 'Two MBPI operating locations support container handling, repair, warehousing, and transportation across two major port corridors.'}</p>
+          <p>{id ? 'Jakarta telah mendukung container depot, warehousing, container repair, dan transportation sejak 1993 melalui PT Multi Bina Pura International dan PT Multi Binatransport. Sejak 2016, MBPI memperluas bisnis dengan branch office dan depot di Semarang.' : 'Jakarta has supported container depot, warehousing, container repair, and transportation since 1993 through PT Multi Bina Pura International and PT Multi Binatransport. Since 2016, MBPI has expanded with a branch office and depot in Semarang.'}</p>
           <Link href={`${prefix}/branches/`} className="premiumTextLink lightLink">{id ? 'Lihat cabang' : 'Explore branches'} <Icon name="arrow" size={16}/></Link>
         </div>
         <div className="premiumLocationList">
@@ -97,10 +113,34 @@ export default function HomePage({ lang = 'id' }) {
       </div>
     </section>
 
+    <section className="premiumGallery">
+      <div className="container">
+        <div className="premiumSectionHead">
+          <div><span className="premiumSectionNo">04</span><span className="premiumEyebrow">GALLERY</span></div>
+          <h2>{id ? 'Aktivitas dan fasilitas MBPI.' : 'MBPI activities and facilities.'}</h2>
+        </div>
+        <div className="galleryGrid">
+          <figure className="galleryLarge">
+            <img loading="lazy" src="https://mbpi.co.id/wp-content/uploads/elementor/thumbs/IMG-7956412017-1-ox4l1zsaqwt0ca1q5wzebbahjfr181vlen8y5jbvog.jpeg" alt="MBPI Jakarta facility"/>
+            <figcaption><span>JAKARTA</span><strong>{id ? 'Operasi Cakung–Cilincing' : 'Cakung–Cilincing operations'}</strong></figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="https://mbpi.co.id/wp-content/uploads/elementor/thumbs/DSCN0168-oxkdcyfuzdkzya9h6wyas2d4xu4m8xjh93x9jemecg.jpg" alt="MBPI Semarang facility"/>
+            <figcaption><span>SEMARANG</span><strong>{id ? 'Branch office & depot' : 'Branch office & depot'}</strong></figcaption>
+          </figure>
+          <div className="galleryStatement">
+            <span className="premiumEyebrow">{id ? 'OUR COMPANY ACTIVITIES & FACILITIES' : 'OUR COMPANY ACTIVITIES & FACILITIES'}</span>
+            <p>{id ? 'Gallery pada website existing dipertahankan sebagai elemen visual utama, bukan sekadar dekorasi.' : 'The legacy gallery is retained as a primary visual element rather than decoration.'}</p>
+            <Link href={`${prefix}/facilities/`} className="premiumTextLink">{id ? 'Lihat fasilitas lengkap' : 'Explore facilities'} <Icon name="arrow" size={16}/></Link>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section className="premiumOperations">
       <div className="container">
         <div className="premiumSectionHead">
-          <div><span className="premiumSectionNo">04</span><span className="premiumEyebrow">{id ? 'OPERASI' : 'OPERATIONS'}</span></div>
+          <div><span className="premiumSectionNo">05</span><span className="premiumEyebrow">{id ? 'OPERASI' : 'OPERATIONS'}</span></div>
           <h2>{id ? 'Infrastruktur dan kontrol yang bekerja di balik setiap layanan.' : 'Infrastructure and control behind every service.'}</h2>
         </div>
         <div className="premiumOpsGrid">

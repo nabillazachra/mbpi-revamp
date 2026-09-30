@@ -17,7 +17,7 @@ export default function ContactPage({ lang='id' }) {
   ];
   const units=[['GATE OPERATION',site.offices.jakarta.gatePhones],['DEPOT',site.offices.jakarta.depotPhones],['WAREHOUSE',site.offices.jakarta.warehousePhones],['TRUCKING',site.offices.jakarta.truckingPhones],['OFFICE',site.offices.jakarta.phones]];
   return <SiteShell lang={lang}>
-    <PageHero index="07" kicker={id ? 'KONTAK' : 'CONTACT'} title={id ? 'Kontak operasional lengkap per unit.' : 'Complete operating contacts by unit.'} intro={id ? 'Nomor telepon, email, alamat, dan jam operasional dari website existing dikonsolidasikan agar pengguna lebih cepat mencapai unit yang tepat.' : 'Phone numbers, email, addresses, and operating hours from the legacy site are consolidated so users can reach the right team faster.'}/>
+    <PageHero index="07" kicker={id ? 'KONTAK' : 'CONTACT'} title={id ? 'Kontak operasional lengkap per unit.' : 'Complete operating contacts by unit.'} intro={id ? 'Nomor telepon, email, alamat, dan jam operasional dikonsolidasikan agar pengguna lebih cepat mencapai unit yang tepat.' : 'Phone numbers, email, addresses, and operating hours are consolidated so users can reach the right team faster.'}/>
     <section className="section"><div className="container contactCards">
       <article><Icon name="location"/><small>JAKARTA OFFICE</small><h3>PT MBPI / PT MBT</h3><p>{site.offices.jakarta.address}</p><a href={`tel:${site.offices.jakarta.phones[0].replace(/\s/g,'')}`}>{site.offices.jakarta.phones.join(' / ')}</a></article>
       <article><Icon name="location"/><small>SEMARANG OFFICE</small><h3>Semarang Facility</h3><p>{site.offices.semarang.address}</p><a href={`mailto:${site.offices.semarang.email}`}>{site.offices.semarang.email}</a></article>

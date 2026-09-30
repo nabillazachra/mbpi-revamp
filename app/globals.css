@@ -1549,3 +1549,159 @@ input:focus,textarea:focus{
     max-width:none;
   }
 }
+
+
+/* Facilities layout + typography refinement */
+.facilityDetailHeader h2{
+  font-size:clamp(54px,5.4vw,78px);
+  line-height:.94;
+  letter-spacing:-.055em;
+  font-weight:600;
+  text-wrap:balance;
+}
+.facilityHeaderCopy p{
+  max-width:760px;
+  margin-top:22px;
+  font-size:15px;
+  line-height:1.62;
+  letter-spacing:-.01em;
+  color:#737a7f;
+}
+.facilityHeaderMeta .sectionIndex,
+.facilityHeaderMeta .kicker{
+  font-size:9px;
+  line-height:1.2;
+}
+.facilityHeaderMeta .kicker{
+  letter-spacing:.15em;
+  font-weight:800;
+}
+.publishedFacts{
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:16px;
+}
+.publishedFacts3>div{
+  grid-column:span 2;
+}
+.publishedFacts5>div:nth-child(-n+3){
+  grid-column:span 2;
+}
+.publishedFacts5>div:nth-child(n+4){
+  grid-column:span 3;
+}
+.publishedFacts>div{
+  min-height:148px;
+  padding:24px 28px;
+  display:grid;
+  grid-template-columns:minmax(145px,.78fr) minmax(0,1fr);
+  align-items:center;
+  column-gap:26px;
+}
+.publishedFacts strong{
+  font-size:clamp(36px,3.1vw,50px);
+  line-height:.92;
+  letter-spacing:-.05em;
+  font-weight:650;
+  white-space:nowrap;
+  font-variant-numeric:tabular-nums lining-nums;
+}
+.publishedFacts span{
+  margin:0;
+  max-width:250px;
+  font-size:12px;
+  line-height:1.45;
+  letter-spacing:0;
+  font-weight:500;
+  color:#747b80;
+}
+.facilitySectionTitle>span,
+.facilityEquipmentHeader .sectionIndex{
+  font-size:9px;
+  line-height:1.2;
+  letter-spacing:.14em;
+  font-weight:800;
+}
+.facilitySectionTitle h3{
+  font-size:30px;
+  line-height:1.05;
+  letter-spacing:-.035em;
+  font-weight:600;
+}
+.facilityMetricCard h4{
+  font-size:17px;
+  line-height:1.28;
+  letter-spacing:-.018em;
+  font-weight:600;
+}
+.metricFields strong{
+  font-size:30px;
+  line-height:1;
+  letter-spacing:-.04em;
+  font-weight:650;
+  font-variant-numeric:tabular-nums lining-nums;
+}
+.metricFields span{
+  font-size:9px;
+  line-height:1.25;
+  letter-spacing:.05em;
+  font-weight:500;
+}
+.facilityFeatureList p{
+  font-size:13px;
+  line-height:1.62;
+  letter-spacing:-.005em;
+}
+.facilityFeatureList span{
+  font-size:9px;
+  letter-spacing:.08em;
+  font-variant-numeric:tabular-nums;
+}
+.facilityEquipmentHeader h2{
+  font-size:38px;
+  line-height:1.02;
+  letter-spacing:-.04em;
+  font-weight:600;
+}
+@media(max-width:1080px){
+  .publishedFacts{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .publishedFacts3>div,
+  .publishedFacts5>div:nth-child(-n+3),
+  .publishedFacts5>div:nth-child(n+4){
+    grid-column:auto;
+  }
+  .publishedFacts>div{
+    min-height:138px;
+  }
+}
+@media(max-width:720px){
+  .facilityDetailHeader h2{
+    font-size:46px;
+    line-height:.96;
+  }
+  .facilityHeaderCopy p{
+    font-size:14px;
+    line-height:1.6;
+  }
+  .publishedFacts{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .publishedFacts>div{
+    min-height:124px;
+    padding:22px;
+    grid-template-columns:1fr;
+    row-gap:12px;
+  }
+  .publishedFacts strong{
+    font-size:38px;
+  }
+  .publishedFacts span{
+    max-width:none;
+    font-size:12px;
+  }
+  .facilitySectionTitle h3{
+    font-size:26px;
+  }
+}

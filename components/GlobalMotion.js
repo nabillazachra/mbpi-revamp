@@ -8,16 +8,20 @@ const GROUPS = [
   '.customerLogoGrid > div',
   '.premiumServiceGrid > *',
   '.premiumOpsGrid > div',
+  '.premiumLocation',
+  '.galleryGrid > *',
   '.valueGrid > *',
   '.serviceRows > article',
   '.branchTimeline > article',
   '.branchServiceStrip > div',
+  '.branchNextActions > a',
   '.quickGrid > a',
   '.faqList > article',
   '.careerDetailedCard',
   '.newsArchive > article',
   '.contactCards > article',
-  '.hoursGrid > article'
+  '.hoursGrid > article',
+  '.supportModuleCard'
 ];
 
 const SECTIONS = [

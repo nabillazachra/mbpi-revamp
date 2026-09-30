@@ -31,8 +31,16 @@ export default function SupportPage({ lang='id' }) {
       <div className="container">
         <div className="sectionHead compact"><div><span className="sectionIndex">05A</span><span className="kicker">{id ? 'MODUL SUPPORT EXISTING' : 'LEGACY SUPPORT MODULES'}</span></div><h2>{id ? 'Dua modul tetap dipertahankan dalam arsitektur baru.' : 'Two legacy modules remain part of the new architecture.'}</h2></div>
         <div className="valueGrid">
-          <article><span>01</span><h3>Damage Container Photos</h3><p>{id ? 'Akses dokumentasi foto kerusakan kontainer dari website existing. URL internal final perlu diverifikasi sebelum tombol live diaktifkan.' : 'Access to container damage photo documentation from the legacy site. The final internal URL needs verification before the live link is enabled.'}</p></article>
-          <article><span>02</span><h3>CFS Consol</h3><p>{id ? 'Modul konsolidasi CFS dari website existing tetap dipertahankan sebagai bagian Support. URL tujuan final belum dipublikasikan sampai tervalidasi.' : 'The legacy CFS consolidation module remains part of Support. Its final destination URL is intentionally withheld until verified.'}</p></article>
+          <a className="supportModuleCard" href={site.external.damagePhotos} target="_blank" rel="noreferrer">
+            <span>01</span><h3>Damage Container Photos</h3>
+            <p>{id ? 'Portal existing untuk melihat dokumentasi foto kerusakan kontainer. Portal membuka halaman login terpisah.' : 'Existing portal for viewing container damage photo documentation. The portal opens a separate login page.'}</p>
+            <strong>{id ? 'Buka portal' : 'Open portal'} <Icon name="arrow" size={16}/></strong>
+          </a>
+          <a className="supportModuleCard" href={site.external.cfsConsol} target="_blank" rel="noreferrer">
+            <span>02</span><h3>CFS Consol</h3>
+            <p>{id ? 'Akses sistem CFS Consol existing MBPI. Sistem tetap dibuka sebagai aplikasi terpisah dari website company profile.' : 'Access the existing MBPI CFS Consol system. The system remains a separate application from the corporate website.'}</p>
+            <strong>{id ? 'Buka sistem' : 'Open system'} <Icon name="arrow" size={16}/></strong>
+          </a>
         </div>
       </div>
     </section>

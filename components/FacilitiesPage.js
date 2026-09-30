@@ -149,6 +149,8 @@ function SemarangFacility({ lang }) {
         <h2>{id ? 'Fasilitas Semarang' : 'Semarang Facility'}</h2>
         <p>{id ? 'Berlokasi di sisi utara Semarang, sekitar 4 km dari Pelabuhan Tanjung Emas.' : 'Located on the north side of Semarang, approximately 4 km from Tanjung Emas Port.'}</p>
         <PublishedFacts facts={[
+          ['±16,400 m²', id ? 'Total Container Yard Area' : 'Total Container Yard Area'],
+          ['4,140 TEUs', id ? 'Kapasitas penyimpanan' : 'Storage capacity'],
           ['4 km', id ? 'Jarak ke Pelabuhan Tanjung Emas' : 'Distance to Tanjung Emas Port']
         ]}/>
       </div>
@@ -157,8 +159,8 @@ function SemarangFacility({ lang }) {
     <div className="facilityDetailSection">
       <div className="facilitySectionTitle"><span>AREA</span><h3>Container Yard</h3></div>
       <div className="facilityMetricGrid two">
-        <MetricCard title={id ? 'Luas Total Container Yard' : 'Total Container Yard Area'} fields={['㎡']} />
-        <MetricCard title={id ? 'Kapasitas Penyimpanan' : 'Storage Capacity'} fields={['TEUs']} />
+        <MetricCard title={id ? 'Luas Total Container Yard' : 'Total Container Yard Area'} fields={['m²']} values={['±16,400']} />
+        <MetricCard title={id ? 'Kapasitas Penyimpanan' : 'Storage Capacity'} fields={['TEUs']} values={['4,140']} />
       </div>
     </div>
 
@@ -170,15 +172,15 @@ function SemarangFacility({ lang }) {
     <div className="facilityDetailSection">
       <div className="facilitySectionTitle"><span>EMPTY</span><h3>Empty Container Equipment</h3></div>
       <div className="facilityMetricGrid">
-        <MetricCard title="Side Loader" fields={['Tier', id ? 'Unit' : 'Units']} />
+        <MetricCard title="Side Loader" fields={['Tier', id ? 'Unit' : 'Units']} values={['8','2']} />
       </div>
     </div>
 
     <div className="facilityDetailSection">
       <div className="facilitySectionTitle"><span>LIFTING</span><h3>Forklift & Reefer</h3></div>
       <div className="facilityMetricGrid two">
-        <MetricCard title={id ? 'Forklift Diesel' : 'Diesel Forklift'} fields={['Ton', id ? 'Unit' : 'Units']} />
-        <MetricCard title="Socket" fields={['A / (380–400V)', id ? 'Unit' : 'Units']} />
+        <MetricCard title={id ? 'Forklift Diesel' : 'Diesel Forklift'} fields={['Ton', id ? 'Unit' : 'Units']} values={['2.5','1']} />
+        <MetricCard title="Socket" fields={['A / (380–400V)', id ? 'Unit' : 'Units']} values={['32','10']} />
       </div>
     </div>
 
@@ -190,15 +192,15 @@ export default function FacilitiesPage({ lang='id' }) {
   const id = lang === 'id';
   const prefix = id ? '/id' : '';
   return <SiteShell lang={lang}>
-    <PageHero index="04" kicker={id ? 'FASILITAS' : 'FACILITIES'} title={id ? 'Fasilitas operasional, ditampilkan selengkap struktur existing.' : 'Operational facilities, preserving the full legacy structure.'} intro={id ? 'Data Jakarta Facility sudah direstore dari screenshot website existing, termasuk yard, CFS, equipment, reefer, dan trailer. Data Semarang tetap menunggu source visual yang setara agar tidak ada angka yang ditebak.' : 'Jakarta Facility data has been restored from the legacy website screenshot, including yard, CFS, equipment, reefer, and trailer figures. Semarang figures remain pending an equally reliable visual source.'}/>
+    <PageHero index="04" kicker={id ? 'FASILITAS' : 'FACILITIES'} title={id ? 'Fasilitas operasional, ditampilkan selengkap struktur existing.' : 'Operational facilities, preserving the full legacy structure.'} intro={id ? 'Data Jakarta dan Semarang Facility sudah direstore dari screenshot website existing, termasuk area, kapasitas, CFS, equipment, reefer, dan trailer.' : 'Jakarta and Semarang Facility data has been restored from the legacy website screenshots, including area, capacity, CFS, equipment, reefer, and trailer figures.'}/>
     <section className="facilityPageWrap"><div className="container">
       <JakartaFacility lang={lang}/>
       <SemarangFacility lang={lang}/>
     </div></section>
     <section className="facilityDataNotice">
       <div className="container facilityDataNoticeInner">
-        <div><span className="kicker">{id ? 'VALIDASI DATA' : 'DATA VALIDATION'}</span><h2>{id ? 'Jakarta sudah lengkap. Semarang masih menunggu data visual.' : 'Jakarta is restored. Semarang still needs visual source data.'}</h2></div>
-        <p>{id ? 'Seluruh angka Jakarta pada section di atas diambil dari screenshot halaman Jakarta Facility existing yang diberikan. Field Semarang yang masih bertuliskan “Belum terbaca” belum akan diisi sampai tersedia screenshot/source resmi yang memperlihatkan angkanya.' : 'All Jakarta figures above were restored from the supplied screenshot of the legacy Jakarta Facility page. Semarang fields that still show “Belum terbaca” will remain unfilled until an official screenshot or source exposes the values.'}</p>
+        <div><span className="kicker">{id ? 'VALIDASI DATA' : 'DATA VALIDATION'}</span><h2>{id ? 'Jakarta dan Semarang sudah direstore dari source visual existing.' : 'Jakarta and Semarang have been restored from legacy visual sources.'}</h2></div>
+        <p>{id ? 'Seluruh metric utama pada halaman ini diambil dari screenshot halaman Jakarta Facility dan Semarang Facility existing yang diberikan, sehingga tidak lagi menggunakan counter hasil crawl yang terbaca 0.' : 'All primary metrics on this page were restored from the supplied legacy Jakarta Facility and Semarang Facility screenshots, replacing the public crawler counters that were exposed as 0.'}</p>
       </div>
     </section>
     <section className="ctaBand"><div className="container ctaInner"><div><div className="kicker lightKicker">{id ? 'BUTUH DETAIL FASILITAS?' : 'NEED FACILITY DETAILS?'}</div><h2>{id ? 'Hubungi tim MBPI untuk data kapasitas terbaru.' : 'Contact MBPI for the latest verified capacity data.'}</h2></div><Link className="lightBtn" href={`${prefix}/contact/`}>{id ? 'Hubungi Kami' : 'Contact Us'} <Icon name="arrow" size={18}/></Link></div></section>

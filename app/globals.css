@@ -390,3 +390,9 @@
 .metricFields strong{font-size:15px;line-height:1.25;color:#9aa0a4}
 @media(max-width:1080px){.publishedFacts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.publishedFacts{grid-template-columns:1fr}}
+
+
+/* Facility verified-state styling */
+.metricStatus.isVerified{display:inline-block;color:var(--brand-green)}
+.facilityMetricCard:has(.metricStatus.isVerified) .metricFields strong{color:var(--brand-green);font-size:28px}
+.facilityMetricCard:has(.metricStatus.isVerified){box-shadow:0 12px 30px rgba(20,122,70,.06)}

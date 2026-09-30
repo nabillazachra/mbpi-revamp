@@ -18,7 +18,7 @@ function MetricCard({ title, fields, values }) {
 }
 
 function PublishedFacts({ facts }) {
-  return <div className="publishedFacts" data-reveal="facts">
+  return <div className={`publishedFacts publishedFacts${facts.length}`} data-reveal="facts">
     {facts.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}
   </div>;
 }

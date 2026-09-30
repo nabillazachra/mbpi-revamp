@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 import Icon from './Icon';
 import { site } from '../content/site';
 
@@ -16,6 +17,7 @@ const nav = {
 
 export default function SiteShell({ lang = 'id', children }) {
   const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
   const home = lang === 'id' ? '/id/' : '/';
   const altPath = lang === 'id'
     ? (pathname?.replace(/^\/id/, '') || '/')
@@ -37,7 +39,22 @@ export default function SiteShell({ lang = 'id', children }) {
           <div className="navActions">
             <Link className="language" href={altPath}>{lang === 'id' ? 'EN' : 'ID'}</Link>
             <Link className="quoteBtn" href={lang === 'id' ? '/id/contact/' : '/contact/'}>{quoteLabel} <Icon name="arrow" size={16}/></Link>
+            <button className="menuToggle" type="button" aria-label={mobileOpen ? 'Close menu' : 'Open menu'} aria-expanded={mobileOpen} onClick={() => setMobileOpen(!mobileOpen)}>
+              <span></span><span></span><span></span>
+            </button>
           </div>
+        </div>
+        <div className={`mobileMenu ${mobileOpen ? 'isOpen' : ''}`}>
+          <nav className="container mobileNav" aria-label="Mobile navigation">
+            {nav[lang].map(([label, href], i) => (
+              <Link key={href} href={href} onClick={() => setMobileOpen(false)}>
+                <span>{String(i + 1).padStart(2, '0')}</span>{label}
+              </Link>
+            ))}
+            <Link className="mobileQuote" href={lang === 'id' ? '/id/contact/' : '/contact/'} onClick={() => setMobileOpen(false)}>
+              {quoteLabel} <Icon name="arrow" size={17}/>
+            </Link>
+          </nav>
         </div>
       </header>
       <main id="content">{children}</main>

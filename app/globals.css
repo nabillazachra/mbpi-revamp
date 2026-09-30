@@ -1204,3 +1204,178 @@ input:focus,textarea:focus{
 @media(hover:none){
   .operationCapabilityCard:hover{transform:none;box-shadow:none}
 }
+
+
+/* Facilities spacing refinement — reduce cramped border treatment */
+.facilityDetailSection{
+  padding:72px 0 84px;
+  border-top:1px solid #d9ddd8;
+}
+.facilitySectionTitle{
+  margin-bottom:44px;
+  align-items:start;
+}
+.facilitySectionTitle:after{
+  bottom:-20px;
+  background:#e0e3de;
+}
+.facilityMetricGrid{
+  gap:18px;
+}
+.facilityMetricGrid.two{
+  gap:18px;
+}
+.facilityMetricGrid.four{
+  gap:14px;
+}
+.facilityMetricCard{
+  min-height:190px;
+  padding:30px 30px 28px;
+  background:#fff;
+  border:1px solid #d9ddd8;
+  box-shadow:0 8px 24px rgba(24,31,27,.025)!important;
+}
+.facilityMetricCard+.facilityMetricCard{
+  border-left:1px solid #d9ddd8;
+}
+.facilityMetricCard h4{
+  margin:0 0 44px;
+  font-size:18px;
+  line-height:1.2;
+}
+.metricFields{
+  gap:28px;
+  margin-top:auto;
+  padding-top:22px;
+  border-top:1px solid #e6e8e4;
+}
+.metricFields div{
+  min-width:96px;
+}
+.metricFields strong{
+  font-size:30px;
+  line-height:1;
+}
+.metricFields span{
+  margin-top:8px;
+  font-size:8px;
+}
+.facilityMetricCard:before{
+  top:24px;
+  bottom:24px;
+  height:auto;
+  width:3px;
+  border-radius:99px;
+  transform:scaleY(0);
+  transform-origin:center;
+  transition:transform .35s var(--ease-out-premium);
+}
+.facilityMetricCard:hover:before{
+  height:auto;
+  transform:scaleY(1);
+}
+.facilityMetricCard:hover{
+  transform:translateY(-5px);
+  background:#fff;
+  box-shadow:0 18px 45px rgba(24,31,27,.07)!important;
+}
+
+/* Published fact cards */
+.publishedFacts{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:12px;
+  border-top:0;
+  margin-top:34px;
+}
+.publishedFacts>div{
+  min-height:112px;
+  padding:22px 20px;
+  background:#fff;
+  border:1px solid #dde0db;
+}
+.publishedFacts>div+div{
+  padding-left:20px;
+}
+.publishedFacts strong{
+  font-size:25px;
+}
+.publishedFacts span{
+  margin-top:9px;
+}
+
+/* Warehouse / feature rows become breathable strips */
+.facilityFeatureList{
+  border-top:0;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.facilityFeatureList>div{
+  min-height:76px;
+  padding:20px 22px;
+  margin:0;
+  border:1px solid #dde0db;
+  background:#fff;
+  align-items:center;
+}
+.facilityFeatureList>div:hover{
+  padding-left:28px;
+  background:#fff;
+  box-shadow:0 12px 30px rgba(24,31,27,.045);
+}
+.facilityFeatureList span{
+  font-size:9px;
+  color:#9ca29e;
+}
+.facilityFeatureList p{
+  font-size:13px;
+  line-height:1.65;
+}
+
+/* Split CFS sections need more separation */
+.splitSections{
+  gap:54px;
+}
+.splitSections>div{
+  padding:0;
+}
+.splitSections .facilitySectionTitle{
+  margin-bottom:40px;
+}
+.splitSections .facilityMetricGrid{
+  gap:14px;
+}
+
+/* Equipment header spacing */
+.facilityEquipmentHeader{
+  padding:88px 0 36px;
+  margin-top:40px;
+}
+.facilityEquipmentHeader:before{
+  margin-bottom:30px;
+}
+
+/* Location footer also gets room */
+.facilityLocationBar{
+  margin-top:26px;
+  padding:26px 0;
+}
+
+/* Responsive */
+@media(max-width:1080px){
+  .publishedFacts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facilityMetricCard{min-height:180px}
+}
+@media(max-width:720px){
+  .facilityDetailSection{padding:56px 0 64px}
+  .facilitySectionTitle{margin-bottom:36px}
+  .facilityMetricGrid,.facilityMetricGrid.two,.facilityMetricGrid.four{gap:12px}
+  .facilityMetricCard{padding:24px;min-height:170px}
+  .facilityMetricCard h4{margin-bottom:36px}
+  .metricFields{padding-top:18px}
+  .publishedFacts{grid-template-columns:1fr;gap:10px}
+  .publishedFacts>div+div{padding-left:20px}
+  .facilityFeatureList>div{padding:18px}
+  .splitSections{gap:36px}
+}

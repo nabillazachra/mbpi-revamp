@@ -4,12 +4,13 @@ import Icon from './Icon';
 import { services } from '../content/site';
 
 function HeroVisual(){
-  return <div className="premiumHeroVisual" aria-label="Abstract container logistics visual">
-    <div className="visualWash"></div>
-    <div className="visualCrane"></div>
-    <div className="visualStacks visualStacksA"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    <div className="visualStacks visualStacksB"><i></i><i></i><i></i><i></i></div>
-    <div className="visualTruck"><span></span></div>
+  return <div className="premiumHeroVisual photoLed" aria-label="MBPI container terminal operations">
+    <img src="https://mbpi.co.id/wp-content/uploads/elementor/thumbs/IMG-7956412017-1-ox4l1zsaqwt0ca1q5wzebbahjfr181vlen8y5jbvog.jpeg" alt="MBPI Jakarta container terminal"/>
+    <div className="heroPhotoOverlay"></div>
+    <div className="heroPhotoMeta">
+      <span>JAKARTA OPERATIONS</span>
+      <strong>Container yard • CFS • Repair • Trucking</strong>
+    </div>
     <div className="visualCaption"><span>MBPI</span><small>INLAND CONTAINER TERMINAL</small></div>
   </div>
 }

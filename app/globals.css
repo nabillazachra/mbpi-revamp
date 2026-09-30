@@ -502,3 +502,58 @@
   .branchStory,.branchCapabilities,.branchContactSection{padding:76px 0}
   .branchServiceStrip{grid-template-columns:1fr}
 }
+
+
+/* 2026-09 visual polish: image-led corporate treatment */
+.premiumHeroVisual.photoLed{background:#151a17}
+.premiumHeroVisual.photoLed>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.86) contrast(1.03)}
+.heroPhotoOverlay{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(13,18,15,.06) 25%,rgba(13,18,15,.72) 100%),linear-gradient(90deg,rgba(13,18,15,.18),transparent 58%)}
+.heroPhotoMeta{position:absolute;z-index:5;right:28px;top:28px;text-align:right;color:#fff;max-width:270px}
+.heroPhotoMeta span,.heroPhotoMeta strong{display:block}
+.heroPhotoMeta span{font-size:8px;font-weight:850;letter-spacing:.17em;color:#d9dfdb}
+.heroPhotoMeta strong{font-size:12px;line-height:1.45;margin-top:7px;font-weight:600}
+.premiumHeroVisual.photoLed .visualCaption{left:30px;bottom:28px}
+.premiumHeroVisual.photoLed .visualCaption span{font-size:52px}
+
+.premiumCustomers{padding:76px 0}
+.customerLogoGrid{border:0;gap:10px}
+.customerLogoGrid>div{border:0;background:#f8f8f5;min-height:132px}
+.customerLogoGrid img{max-width:145px;max-height:58px;filter:grayscale(1);opacity:.7}
+.customerLogoGrid>div:hover{background:#fff;box-shadow:0 12px 30px rgba(20,26,23,.05)}
+
+.galleryGrid{grid-template-columns:1.4fr .6fr;grid-template-rows:360px 220px;gap:16px}
+.galleryGrid figure{border-radius:0}
+.galleryGrid img{transition:transform .45s ease}
+.galleryGrid figure:hover img{transform:scale(1.025)}
+.galleryStatement{padding:34px}
+.galleryStatement p{font-size:14px}
+
+.facilityPhoto{position:relative;height:520px;margin:0 0 74px;overflow:hidden;background:#161b18}
+.facilityPhoto img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) contrast(1.04)}
+.facilityPhotoShade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(11,15,13,.62))}
+.facilityPhoto figcaption{position:absolute;left:28px;bottom:26px;color:#fff}
+.facilityPhoto figcaption span,.facilityPhoto figcaption strong{display:block}
+.facilityPhoto figcaption span{font-size:8px;letter-spacing:.17em;color:#d2d8d4}
+.facilityPhoto figcaption strong{font-size:26px;margin-top:5px;letter-spacing:-.03em}
+.facilityDetailHeader{margin-bottom:68px}
+.facilityDetailSection{padding:52px 0 58px}
+.facilityMetricGrid{gap:0;background:transparent}
+.facilityMetricCard{background:transparent;border-top:1px solid #d5d8d3;border-bottom:1px solid #d5d8d3;box-shadow:none!important;padding:24px 0;min-height:150px}
+.facilityMetricCard+.facilityMetricCard{border-left:0}
+.facilityMetricCard h4{font-size:18px;margin:5px 0 42px}
+.metricFields{padding-top:16px}
+.facilityMetricCard:has(.metricStatus.isVerified) .metricFields strong{font-size:34px;letter-spacing:-.045em}
+.facilityFeatureList>div{background:transparent;border-bottom:1px solid #d7d9d5;margin:0;padding:18px 4px}
+.publishedFacts{gap:0;background:transparent;border-top:1px solid #d9dcd7}
+.publishedFacts>div{background:transparent;border-bottom:1px solid #d9dcd7;padding:20px 0}
+.publishedFacts>div+div{padding-left:22px}
+.facilityEquipmentHeader{padding-top:110px}
+.facilityDataNotice{padding:82px 0}
+
+@media(max-width:720px){
+  .premiumHeroVisual.photoLed{min-height:430px}
+  .heroPhotoMeta{right:18px;top:18px;max-width:210px}
+  .galleryGrid{grid-template-columns:1fr;grid-template-rows:auto}
+  .facilityPhoto{height:330px;margin-bottom:50px}
+  .publishedFacts>div+div{padding-left:0}
+}

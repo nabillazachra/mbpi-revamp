@@ -24,6 +24,17 @@ function PublishedFacts({ facts }) {
   </div>;
 }
 
+function FacilityPhoto({ city }) {
+  const isJakarta = city === 'Jakarta';
+  return <figure className="facilityPhoto">
+    <img src={isJakarta
+      ? 'https://mbpi.co.id/wp-content/uploads/elementor/thumbs/IMG-7956412017-1-ox4l1zsaqwt0ca1q5wzebbahjfr181vlen8y5jbvog.jpeg'
+      : 'https://mbpi.co.id/wp-content/uploads/elementor/thumbs/DSCN0168-oxkdcyfuzdkzya9h6wyas2d4xu4m8xjh93x9jemecg.jpg'} alt={`MBPI ${city} facility`} />
+    <div className="facilityPhotoShade"></div>
+    <figcaption><span>{city.toUpperCase()}</span><strong>MBPI Facility</strong></figcaption>
+  </figure>;
+}
+
 function FeatureList({ items }) {
   return <div className="facilityFeatureList">
     {items.map((item, index) => <div key={item}><span>{String(index + 1).padStart(2, '0')}</span><p>{item}</p></div>)}
@@ -33,6 +44,7 @@ function FeatureList({ items }) {
 function JakartaFacility({ lang }) {
   const id = lang === 'id';
   return <section className="facilityDetail">
+    <FacilityPhoto city="Jakarta"/>
     <div className="facilityDetailHeader">
       <div><span className="sectionIndex">01</span><span className="kicker">JAKARTA FACILITY</span></div>
       <div>
@@ -143,6 +155,7 @@ function JakartaFacility({ lang }) {
 function SemarangFacility({ lang }) {
   const id = lang === 'id';
   return <section className="facilityDetail facilitySemarang">
+    <FacilityPhoto city="Semarang"/>
     <div className="facilityDetailHeader">
       <div><span className="sectionIndex">02</span><span className="kicker">SEMARANG FACILITY</span></div>
       <div>

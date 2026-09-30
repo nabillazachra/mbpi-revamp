@@ -24,10 +24,10 @@ export default function HomePage({ lang = 'id' }) {
           <ContainerVisual />
         </div>
         <div className="container trustStrip">
-          <div><span>{id ? 'Pengalaman' : 'Experience'}</span><strong>30+ {id ? 'tahun' : 'years'}</strong></div>
-          <div><span>{id ? 'Lokasi' : 'Locations'}</span><strong>Jakarta + Semarang</strong></div>
+          <div><span>{id ? 'Berdiri' : 'Established'}</span><strong>1993</strong></div>
+          <div><span>{id ? 'Area depot' : 'Depot area'}</span><strong>100,000+ m²</strong></div>
+          <div><span>{id ? 'Jaringan' : 'Network'}</span><strong>Jakarta + Semarang</strong></div>
           <div><span>{id ? 'Model layanan' : 'Service model'}</span><strong>One-stop logistics</strong></div>
-          <div><span>{id ? 'Fokus operasional' : 'Operational focus'}</span><strong>Safety + Visibility</strong></div>
         </div>
       </section>
 
